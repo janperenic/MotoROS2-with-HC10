@@ -1,0 +1,1 @@
+/home/janperenic/moveit2/build/hello_moveit/ament_cmake_environment_hooks/local_setup.zsh

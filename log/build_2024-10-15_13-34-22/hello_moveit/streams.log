@@ -1,0 +1,26 @@
+[0.010s] Invoking command in '/home/janperenic/moveit2/build/hello_moveit': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/janperenic/moveit2/build/hello_moveit -- -j16 -l16
+[0.059s] [35m[1mConsolidate compiler generated dependencies of target hello_moveit_node[0m
+[0.087s] [ 50%] [32mBuilding CXX object CMakeFiles/hello_moveit_node.dir/src/hello_moveit.cpp.o[0m
+[9.997s] [100%] [32m[1mLinking CXX executable hello_moveit_node[0m
+[10.588s] [100%] Built target hello_moveit_node
+[10.598s] Invoked command in '/home/janperenic/moveit2/build/hello_moveit' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/janperenic/moveit2/build/hello_moveit -- -j16 -l16
+[10.632s] Invoking command in '/home/janperenic/moveit2/build/hello_moveit': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/janperenic/moveit2/build/hello_moveit
+[10.639s] -- Install configuration: "Debug"
+[10.639s] -- Execute custom install script
+[10.639s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hello_moveit/lib/hello_moveit/hello_moveit_node
+[10.639s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hello_moveit/share/ament_index/resource_index/package_run_dependencies/hello_moveit
+[10.639s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hello_moveit/share/ament_index/resource_index/parent_prefix_path/hello_moveit
+[10.640s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hello_moveit/share/hello_moveit/environment/ament_prefix_path.sh
+[10.640s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hello_moveit/share/hello_moveit/environment/ament_prefix_path.dsv
+[10.640s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hello_moveit/share/hello_moveit/environment/path.sh
+[10.640s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hello_moveit/share/hello_moveit/environment/path.dsv
+[10.640s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hello_moveit/share/hello_moveit/local_setup.bash
+[10.640s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hello_moveit/share/hello_moveit/local_setup.sh
+[10.640s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hello_moveit/share/hello_moveit/local_setup.zsh
+[10.640s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hello_moveit/share/hello_moveit/local_setup.dsv
+[10.641s] -- Symlinking: /home/janperenic/moveit2/install/hello_moveit/share/hello_moveit/package.dsv
+[10.649s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hello_moveit/share/ament_index/resource_index/packages/hello_moveit
+[10.649s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hello_moveit/share/hello_moveit/cmake/hello_moveitConfig.cmake
+[10.649s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hello_moveit/share/hello_moveit/cmake/hello_moveitConfig-version.cmake
+[10.649s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hello_moveit/share/hello_moveit/package.xml
+[10.651s] Invoked command in '/home/janperenic/moveit2/build/hello_moveit' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/janperenic/moveit2/build/hello_moveit

@@ -1,0 +1,201 @@
+[0.000000] (-) TimerEvent: {}
+[0.000532] (hc10dt_moveit_config) JobQueued: {'identifier': 'hc10dt_moveit_config', 'dependencies': OrderedDict()}
+[0.000563] (hello_moveit) JobQueued: {'identifier': 'hello_moveit', 'dependencies': OrderedDict()}
+[0.000580] (motion_planning_python_api) JobQueued: {'identifier': 'motion_planning_python_api', 'dependencies': OrderedDict()}
+[0.000595] (hc10dt_moveit_config) JobStarted: {'identifier': 'hc10dt_moveit_config'}
+[0.004871] (hello_moveit) JobStarted: {'identifier': 'hello_moveit'}
+[0.007682] (motion_planning_python_api) JobStarted: {'identifier': 'motion_planning_python_api'}
+[0.011377] (hc10dt_moveit_config) JobProgress: {'identifier': 'hc10dt_moveit_config', 'progress': 'cmake'}
+[0.011815] (hc10dt_moveit_config) JobProgress: {'identifier': 'hc10dt_moveit_config', 'progress': 'build'}
+[0.012368] (hc10dt_moveit_config) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/janperenic/moveit2/build/hc10dt_moveit_config', '--', '-j16', '-l16'], 'cwd': '/home/janperenic/moveit2/build/hc10dt_moveit_config', 'env': OrderedDict([('USER', 'janperenic'), ('LC_TIME', 'de_AT.UTF-8'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/janperenic'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'de_AT.UTF-8'), ('SYSTEMD_EXEC_PID', '4435'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'janperenic'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'janperenic'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/janperenic-OMEN:@/tmp/.ICE-unix/2116,unix/janperenic-OMEN:/tmp/.ICE-unix/2116'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'de_AT.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/fff3ec58_e796_4232_8be6_ca3ce739550a'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'de_AT.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('GNOME_TERMINAL_SERVICE', ':1.105'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'de_AT.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LC_MEASUREMENT', 'de_AT.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('LC_IDENTIFICATION', 'de_AT.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/janperenic/moveit2/build/hc10dt_moveit_config'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'de_AT.UTF-8'), ('LC_PAPER', 'de_AT.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.014437] (hello_moveit) JobProgress: {'identifier': 'hello_moveit', 'progress': 'cmake'}
+[0.014980] (hello_moveit) JobProgress: {'identifier': 'hello_moveit', 'progress': 'build'}
+[0.015349] (hello_moveit) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/janperenic/moveit2/build/hello_moveit', '--', '-j16', '-l16'], 'cwd': '/home/janperenic/moveit2/build/hello_moveit', 'env': OrderedDict([('USER', 'janperenic'), ('LC_TIME', 'de_AT.UTF-8'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/janperenic'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'de_AT.UTF-8'), ('SYSTEMD_EXEC_PID', '4435'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'janperenic'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'janperenic'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/janperenic-OMEN:@/tmp/.ICE-unix/2116,unix/janperenic-OMEN:/tmp/.ICE-unix/2116'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'de_AT.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/fff3ec58_e796_4232_8be6_ca3ce739550a'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'de_AT.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('GNOME_TERMINAL_SERVICE', ':1.105'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'de_AT.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LC_MEASUREMENT', 'de_AT.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('LC_IDENTIFICATION', 'de_AT.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/janperenic/moveit2/build/hello_moveit'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'de_AT.UTF-8'), ('LC_PAPER', 'de_AT.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.017639] (motion_planning_python_api) JobProgress: {'identifier': 'motion_planning_python_api', 'progress': 'cmake'}
+[0.018074] (motion_planning_python_api) JobProgress: {'identifier': 'motion_planning_python_api', 'progress': 'build'}
+[0.018383] (motion_planning_python_api) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/janperenic/moveit2/build/motion_planning_python_api', '--', '-j16', '-l16'], 'cwd': '/home/janperenic/moveit2/build/motion_planning_python_api', 'env': OrderedDict([('USER', 'janperenic'), ('LC_TIME', 'de_AT.UTF-8'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/janperenic'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'de_AT.UTF-8'), ('SYSTEMD_EXEC_PID', '4435'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'janperenic'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'janperenic'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/janperenic-OMEN:@/tmp/.ICE-unix/2116,unix/janperenic-OMEN:/tmp/.ICE-unix/2116'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'de_AT.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/fff3ec58_e796_4232_8be6_ca3ce739550a'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'de_AT.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('GNOME_TERMINAL_SERVICE', ':1.105'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'de_AT.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LC_MEASUREMENT', 'de_AT.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('LC_IDENTIFICATION', 'de_AT.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/janperenic/moveit2/build/motion_planning_python_api'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'de_AT.UTF-8'), ('LC_PAPER', 'de_AT.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.046132] (hc10dt_moveit_config) CommandEnded: {'returncode': 0}
+[0.052316] (motion_planning_python_api) CommandEnded: {'returncode': 0}
+[0.065942] (hc10dt_moveit_config) JobProgress: {'identifier': 'hc10dt_moveit_config', 'progress': 'install'}
+[0.071638] (hello_moveit) StdoutLine: {'line': b'[ 75%] \x1b[32mBuilding CXX object CMakeFiles/hello_moveit_node.dir/src/hello_moveit.cpp.o\x1b[0m\n'}
+[0.071843] (hello_moveit) StdoutLine: {'line': b'[ 75%] Built target current_poss\n'}
+[0.073005] (hc10dt_moveit_config) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/janperenic/moveit2/build/hc10dt_moveit_config'], 'cwd': '/home/janperenic/moveit2/build/hc10dt_moveit_config', 'env': OrderedDict([('USER', 'janperenic'), ('LC_TIME', 'de_AT.UTF-8'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/janperenic'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'de_AT.UTF-8'), ('SYSTEMD_EXEC_PID', '4435'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'janperenic'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'janperenic'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/janperenic-OMEN:@/tmp/.ICE-unix/2116,unix/janperenic-OMEN:/tmp/.ICE-unix/2116'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'de_AT.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/fff3ec58_e796_4232_8be6_ca3ce739550a'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'de_AT.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('GNOME_TERMINAL_SERVICE', ':1.105'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'de_AT.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LC_MEASUREMENT', 'de_AT.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('LC_IDENTIFICATION', 'de_AT.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/janperenic/moveit2/build/hc10dt_moveit_config'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'de_AT.UTF-8'), ('LC_PAPER', 'de_AT.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.074172] (motion_planning_python_api) JobProgress: {'identifier': 'motion_planning_python_api', 'progress': 'install'}
+[0.074763] (motion_planning_python_api) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/janperenic/moveit2/build/motion_planning_python_api'], 'cwd': '/home/janperenic/moveit2/build/motion_planning_python_api', 'env': OrderedDict([('USER', 'janperenic'), ('LC_TIME', 'de_AT.UTF-8'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/janperenic'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'de_AT.UTF-8'), ('SYSTEMD_EXEC_PID', '4435'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'janperenic'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'janperenic'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/janperenic-OMEN:@/tmp/.ICE-unix/2116,unix/janperenic-OMEN:/tmp/.ICE-unix/2116'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'de_AT.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/fff3ec58_e796_4232_8be6_ca3ce739550a'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'de_AT.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('GNOME_TERMINAL_SERVICE', ':1.105'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'de_AT.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LC_MEASUREMENT', 'de_AT.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('LC_IDENTIFICATION', 'de_AT.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/janperenic/moveit2/build/motion_planning_python_api'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'de_AT.UTF-8'), ('LC_PAPER', 'de_AT.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.079730] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[0.080145] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[0.080321] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/ament_index/resource_index/package_run_dependencies/hc10dt_moveit_config\n'}
+[0.080456] (motion_planning_python_api) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[0.080539] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/ament_index/resource_index/parent_prefix_path/hc10dt_moveit_config\n'}
+[0.080624] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/environment/ament_prefix_path.sh\n'}
+[0.080709] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/environment/ament_prefix_path.dsv\n'}
+[0.080850] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/environment/path.sh\n'}
+[0.080919] (motion_planning_python_api) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[0.081000] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/environment/path.dsv\n'}
+[0.081077] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/local_setup.bash\n'}
+[0.081154] (motion_planning_python_api) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/motion_planning_python_api/lib/motion_planning_python_api/motion_planning_python_api_tutorial.py\n'}
+[0.081231] (motion_planning_python_api) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/motion_planning_python_api/lib/motion_planning_python_api/motion_planning_python_api_planning_scene.py\n'}
+[0.081313] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/local_setup.sh\n'}
+[0.081357] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/local_setup.zsh\n'}
+[0.081416] (motion_planning_python_api) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/motion_planning_python_api/share/motion_planning_python_api/config/motion_planning_python_api_tutorial.rviz\n'}
+[0.081481] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/local_setup.dsv\n'}
+[0.081527] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Symlinking: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/package.dsv\n'}
+[0.081586] (motion_planning_python_api) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/motion_planning_python_api/share/motion_planning_python_api/config/motion_planning_python_api_tutorial.yaml\n'}
+[0.081678] (motion_planning_python_api) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/motion_planning_python_api/share/motion_planning_python_api/launch/motion_planning_python_api_tutorial.launch.py\n'}
+[0.081835] (motion_planning_python_api) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/motion_planning_python_api/share/ament_index/resource_index/package_run_dependencies/motion_planning_python_api\n'}
+[0.081982] (motion_planning_python_api) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/motion_planning_python_api/share/ament_index/resource_index/parent_prefix_path/motion_planning_python_api\n'}
+[0.082121] (motion_planning_python_api) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/motion_planning_python_api/share/motion_planning_python_api/environment/ament_prefix_path.sh\n'}
+[0.082249] (motion_planning_python_api) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/motion_planning_python_api/share/motion_planning_python_api/environment/ament_prefix_path.dsv\n'}
+[0.082374] (motion_planning_python_api) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/motion_planning_python_api/share/motion_planning_python_api/environment/path.sh\n'}
+[0.082491] (motion_planning_python_api) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/motion_planning_python_api/share/motion_planning_python_api/environment/path.dsv\n'}
+[0.082607] (motion_planning_python_api) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/motion_planning_python_api/share/motion_planning_python_api/local_setup.bash\n'}
+[0.082721] (motion_planning_python_api) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/motion_planning_python_api/share/motion_planning_python_api/local_setup.sh\n'}
+[0.082839] (motion_planning_python_api) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/motion_planning_python_api/share/motion_planning_python_api/local_setup.zsh\n'}
+[0.082957] (motion_planning_python_api) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/motion_planning_python_api/share/motion_planning_python_api/local_setup.dsv\n'}
+[0.083037] (motion_planning_python_api) StdoutLine: {'line': b'-- Symlinking: /home/janperenic/moveit2/install/motion_planning_python_api/share/motion_planning_python_api/package.dsv\n'}
+[0.089937] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/ament_index/resource_index/packages/hc10dt_moveit_config\n'}
+[0.090076] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/cmake/hc10dt_moveit_configConfig.cmake\n'}
+[0.090156] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/cmake/hc10dt_moveit_configConfig-version.cmake\n'}
+[0.090292] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/package.xml\n'}
+[0.090689] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/launch/demo.launch.py\n'}
+[0.090784] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/launch/move_group.launch.py\n'}
+[0.090875] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/launch/moveit_rviz.launch.py\n'}
+[0.090971] (motion_planning_python_api) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/motion_planning_python_api/share/ament_index/resource_index/packages/motion_planning_python_api\n'}
+[0.091062] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/launch/rsp.launch.py\n'}
+[0.091129] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/launch/setup_assistant.launch.py\n'}
+[0.091186] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/launch/spawn_controllers.launch.py\n'}
+[0.091260] (motion_planning_python_api) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/motion_planning_python_api/share/motion_planning_python_api/cmake/motion_planning_python_apiConfig.cmake\n'}
+[0.091337] (motion_planning_python_api) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/motion_planning_python_api/share/motion_planning_python_api/cmake/motion_planning_python_apiConfig-version.cmake\n'}
+[0.091400] (motion_planning_python_api) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/motion_planning_python_api/share/motion_planning_python_api/package.xml\n'}
+[0.091470] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/launch/static_virtual_joint_tfs.launch.py\n'}
+[0.091524] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/launch/warehouse_db.launch.py\n'}
+[0.091583] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/config/initial_positions.yaml\n'}
+[0.091642] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/config/joint_limits.yaml\n'}
+[0.091716] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/config/kinematics.yaml\n'}
+[0.091795] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/config/motoman_hc10dt.ros2_control.xacro\n'}
+[0.091883] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/config/motoman_hc10dt.srdf\n'}
+[0.091966] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/config/motoman_hc10dt.urdf.xacro\n'}
+[0.092045] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/config/moveit.rviz\n'}
+[0.092125] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/config/moveit_controllers.yaml\n'}
+[0.092204] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/config/pilz_cartesian_limits.yaml\n'}
+[0.092283] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/config/ros2_controllers.yaml\n'}
+[0.092363] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/config/sensors_3d.yaml\n'}
+[0.092581] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/urdf/common_colors.xacro\n'}
+[0.092662] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/urdf/common_materials.xacro\n'}
+[0.092748] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/urdf/hc10dt.urdf\n'}
+[0.092875] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/urdf/hc10dt.xacro\n'}
+[0.092963] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/urdf/hc10dt_macro.xacro\n'}
+[0.093260] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/meshes/collision/base_link.stl\n'}
+[0.093393] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/meshes/collision/link_1_s.stl\n'}
+[0.093774] (motion_planning_python_api) CommandEnded: {'returncode': 0}
+[0.094178] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/meshes/collision/link_2_l.stl\n'}
+[0.094302] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/meshes/collision/link_3_u.stl\n'}
+[0.094355] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/meshes/collision/link_4_r.stl\n'}
+[0.094399] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/meshes/collision/link_5_b.stl\n'}
+[0.094442] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/meshes/collision/link_6_t.stl\n'}
+[0.094485] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/meshes/visual/base_link.dae\n'}
+[0.094528] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/meshes/visual/link_1_s.dae\n'}
+[0.094570] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/meshes/visual/link_2_l.dae\n'}
+[0.094611] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/meshes/visual/link_3_u.dae\n'}
+[0.094652] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/meshes/visual/link_4_r.dae\n'}
+[0.094695] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/meshes/visual/link_5_b.dae\n'}
+[0.094754] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/meshes/visual/link_6_t.dae\n'}
+[0.094820] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/scripts/demo_move.py\n'}
+[0.094938] (hc10dt_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/.setup_assistant\n'}
+[0.099959] (-) TimerEvent: {}
+[0.103263] (hc10dt_moveit_config) CommandEnded: {'returncode': 0}
+[0.128240] (motion_planning_python_api) JobEnded: {'identifier': 'motion_planning_python_api', 'rc': 0}
+[0.133357] (hc10dt_moveit_config) JobEnded: {'identifier': 'hc10dt_moveit_config', 'rc': 0}
+[0.200063] (-) TimerEvent: {}
+[0.300308] (-) TimerEvent: {}
+[0.400556] (-) TimerEvent: {}
+[0.500837] (-) TimerEvent: {}
+[0.601123] (-) TimerEvent: {}
+[0.701376] (-) TimerEvent: {}
+[0.801637] (-) TimerEvent: {}
+[0.901877] (-) TimerEvent: {}
+[1.002122] (-) TimerEvent: {}
+[1.102366] (-) TimerEvent: {}
+[1.202627] (-) TimerEvent: {}
+[1.302877] (-) TimerEvent: {}
+[1.403139] (-) TimerEvent: {}
+[1.503398] (-) TimerEvent: {}
+[1.603658] (-) TimerEvent: {}
+[1.703899] (-) TimerEvent: {}
+[1.804170] (-) TimerEvent: {}
+[1.904430] (-) TimerEvent: {}
+[2.004712] (-) TimerEvent: {}
+[2.105007] (-) TimerEvent: {}
+[2.205273] (-) TimerEvent: {}
+[2.305537] (-) TimerEvent: {}
+[2.405806] (-) TimerEvent: {}
+[2.506089] (-) TimerEvent: {}
+[2.606340] (-) TimerEvent: {}
+[2.706617] (-) TimerEvent: {}
+[2.806881] (-) TimerEvent: {}
+[2.907144] (-) TimerEvent: {}
+[3.007417] (-) TimerEvent: {}
+[3.107671] (-) TimerEvent: {}
+[3.207890] (-) TimerEvent: {}
+[3.308181] (-) TimerEvent: {}
+[3.408464] (-) TimerEvent: {}
+[3.508728] (-) TimerEvent: {}
+[3.609036] (-) TimerEvent: {}
+[3.709272] (-) TimerEvent: {}
+[3.809524] (-) TimerEvent: {}
+[3.909774] (-) TimerEvent: {}
+[4.010049] (-) TimerEvent: {}
+[4.110309] (-) TimerEvent: {}
+[4.210557] (-) TimerEvent: {}
+[4.310829] (-) TimerEvent: {}
+[4.411083] (-) TimerEvent: {}
+[4.511344] (-) TimerEvent: {}
+[4.611594] (-) TimerEvent: {}
+[4.711868] (-) TimerEvent: {}
+[4.812143] (-) TimerEvent: {}
+[4.912423] (-) TimerEvent: {}
+[5.012715] (-) TimerEvent: {}
+[5.113042] (-) TimerEvent: {}
+[5.213308] (-) TimerEvent: {}
+[5.313552] (-) TimerEvent: {}
+[5.413806] (-) TimerEvent: {}
+[5.514058] (-) TimerEvent: {}
+[5.614296] (-) TimerEvent: {}
+[5.714541] (-) TimerEvent: {}
+[5.814789] (-) TimerEvent: {}
+[5.915064] (-) TimerEvent: {}
+[6.015353] (-) TimerEvent: {}
+[6.115600] (-) TimerEvent: {}
+[6.215851] (-) TimerEvent: {}
+[6.316108] (-) TimerEvent: {}
+[6.371740] (hello_moveit) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable hello_moveit_node\x1b[0m\n'}
+[6.416203] (-) TimerEvent: {}
+[6.516468] (-) TimerEvent: {}
+[6.616771] (-) TimerEvent: {}
+[6.677410] (hello_moveit) StdoutLine: {'line': b'[100%] Built target hello_moveit_node\n'}
+[6.688049] (hello_moveit) CommandEnded: {'returncode': 0}
+[6.712922] (hello_moveit) JobProgress: {'identifier': 'hello_moveit', 'progress': 'install'}
+[6.713411] (hello_moveit) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/janperenic/moveit2/build/hello_moveit'], 'cwd': '/home/janperenic/moveit2/build/hello_moveit', 'env': OrderedDict([('USER', 'janperenic'), ('LC_TIME', 'de_AT.UTF-8'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/janperenic'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'de_AT.UTF-8'), ('SYSTEMD_EXEC_PID', '4435'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'janperenic'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'janperenic'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/janperenic-OMEN:@/tmp/.ICE-unix/2116,unix/janperenic-OMEN:/tmp/.ICE-unix/2116'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'de_AT.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/fff3ec58_e796_4232_8be6_ca3ce739550a'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'de_AT.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('GNOME_TERMINAL_SERVICE', ':1.105'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'de_AT.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LC_MEASUREMENT', 'de_AT.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('LC_IDENTIFICATION', 'de_AT.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/janperenic/moveit2/build/hello_moveit'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'de_AT.UTF-8'), ('LC_PAPER', 'de_AT.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[6.716819] (-) TimerEvent: {}
+[6.720384] (hello_moveit) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[6.720741] (hello_moveit) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[6.721023] (hello_moveit) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hello_moveit/lib/hello_moveit/hello_moveit_node\n'}
+[6.721186] (hello_moveit) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hello_moveit/lib/hello_moveit/current_poss\n'}
+[6.721325] (hello_moveit) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hello_moveit/share/ament_index/resource_index/package_run_dependencies/hello_moveit\n'}
+[6.721453] (hello_moveit) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hello_moveit/share/ament_index/resource_index/parent_prefix_path/hello_moveit\n'}
+[6.721572] (hello_moveit) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hello_moveit/share/hello_moveit/environment/ament_prefix_path.sh\n'}
+[6.721680] (hello_moveit) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hello_moveit/share/hello_moveit/environment/ament_prefix_path.dsv\n'}
+[6.721796] (hello_moveit) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hello_moveit/share/hello_moveit/environment/path.sh\n'}
+[6.721913] (hello_moveit) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hello_moveit/share/hello_moveit/environment/path.dsv\n'}
+[6.722014] (hello_moveit) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hello_moveit/share/hello_moveit/local_setup.bash\n'}
+[6.722134] (hello_moveit) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hello_moveit/share/hello_moveit/local_setup.sh\n'}
+[6.722224] (hello_moveit) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hello_moveit/share/hello_moveit/local_setup.zsh\n'}
+[6.722324] (hello_moveit) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hello_moveit/share/hello_moveit/local_setup.dsv\n'}
+[6.722393] (hello_moveit) StdoutLine: {'line': b'-- Symlinking: /home/janperenic/moveit2/install/hello_moveit/share/hello_moveit/package.dsv\n'}
+[6.730196] (hello_moveit) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hello_moveit/share/ament_index/resource_index/packages/hello_moveit\n'}
+[6.730347] (hello_moveit) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hello_moveit/share/hello_moveit/cmake/hello_moveitConfig.cmake\n'}
+[6.730458] (hello_moveit) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hello_moveit/share/hello_moveit/cmake/hello_moveitConfig-version.cmake\n'}
+[6.730555] (hello_moveit) StdoutLine: {'line': b'-- Up-to-date symlink: /home/janperenic/moveit2/install/hello_moveit/share/hello_moveit/package.xml\n'}
+[6.732316] (hello_moveit) CommandEnded: {'returncode': 0}
+[6.767152] (hello_moveit) JobEnded: {'identifier': 'hello_moveit', 'rc': 0}
+[6.767680] (-) EventReactorShutdown: {}

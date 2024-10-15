@@ -1,0 +1,1 @@
+/home/janperenic/moveit2/src/hc10dt_moveit_config/launch/moveit_rviz.launch.py

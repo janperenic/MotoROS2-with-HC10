@@ -1,0 +1,1 @@
+Invoking command in '/home/janperenic/moveit2/build/motion_planning_python_api': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/janperenic/moveit2/src/motion_planning_python_api -DCMAKE_INSTALL_PREFIX=/home/janperenic/moveit2/install/motion_planning_python_api

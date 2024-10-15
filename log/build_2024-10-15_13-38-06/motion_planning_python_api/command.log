@@ -1,0 +1,4 @@
+Invoking command in '/home/janperenic/moveit2/build/motion_planning_python_api': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/janperenic/moveit2/build/motion_planning_python_api -- -j16 -l16
+Invoked command in '/home/janperenic/moveit2/build/motion_planning_python_api' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/janperenic/moveit2/build/motion_planning_python_api -- -j16 -l16
+Invoking command in '/home/janperenic/moveit2/build/motion_planning_python_api': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/janperenic/moveit2/build/motion_planning_python_api
+Invoked command in '/home/janperenic/moveit2/build/motion_planning_python_api' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/janperenic/moveit2/build/motion_planning_python_api

@@ -1,0 +1,86 @@
+[0.013s] Invoking command in '/home/janperenic/moveit2/build/hc10dt_moveit_config': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/janperenic/moveit2/src/hc10dt_moveit_config -DCMAKE_INSTALL_PREFIX=/home/janperenic/moveit2/install/hc10dt_moveit_config
+[0.064s] -- The C compiler identification is GNU 11.4.0
+[0.110s] -- The CXX compiler identification is GNU 11.4.0
+[0.116s] -- Detecting C compiler ABI info
+[0.177s] -- Detecting C compiler ABI info - done
+[0.182s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.183s] -- Detecting C compile features
+[0.183s] -- Detecting C compile features - done
+[0.185s] -- Detecting CXX compiler ABI info
+[0.252s] -- Detecting CXX compiler ABI info - done
+[0.257s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.258s] -- Detecting CXX compile features
+[0.258s] -- Detecting CXX compile features - done
+[0.260s] -- Found ament_cmake: 1.3.10 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.381s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.507s] -- Configuring done
+[0.510s] -- Generating done
+[0.510s] -- Build files have been written to: /home/janperenic/moveit2/build/hc10dt_moveit_config
+[0.515s] Invoked command in '/home/janperenic/moveit2/build/hc10dt_moveit_config' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/janperenic/moveit2/src/hc10dt_moveit_config -DCMAKE_INSTALL_PREFIX=/home/janperenic/moveit2/install/hc10dt_moveit_config
+[0.515s] Invoking command in '/home/janperenic/moveit2/build/hc10dt_moveit_config': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/janperenic/moveit2/build/hc10dt_moveit_config -- -j16 -l16
+[0.547s] Invoked command in '/home/janperenic/moveit2/build/hc10dt_moveit_config' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/janperenic/moveit2/build/hc10dt_moveit_config -- -j16 -l16
+[0.573s] Invoking command in '/home/janperenic/moveit2/build/hc10dt_moveit_config': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/janperenic/moveit2/build/hc10dt_moveit_config
+[0.579s] -- Install configuration: ""
+[0.580s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/ament_index/resource_index/package_run_dependencies/hc10dt_moveit_config
+[0.580s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/ament_index/resource_index/parent_prefix_path/hc10dt_moveit_config
+[0.580s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/environment/ament_prefix_path.sh
+[0.580s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/environment/ament_prefix_path.dsv
+[0.580s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/environment/path.sh
+[0.580s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/environment/path.dsv
+[0.581s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/local_setup.bash
+[0.581s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/local_setup.sh
+[0.581s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/local_setup.zsh
+[0.581s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/local_setup.dsv
+[0.581s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/package.dsv
+[0.581s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/ament_index/resource_index/packages/hc10dt_moveit_config
+[0.581s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/cmake/hc10dt_moveit_configConfig.cmake
+[0.582s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/cmake/hc10dt_moveit_configConfig-version.cmake
+[0.582s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/package.xml
+[0.582s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/launch
+[0.582s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/launch/static_virtual_joint_tfs.launch.py
+[0.582s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/launch/demo.launch.py
+[0.582s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/launch/rsp.launch.py
+[0.582s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/launch/moveit_rviz.launch.py
+[0.583s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/launch/move_group.launch.py
+[0.583s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/launch/setup_assistant.launch.py
+[0.583s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/launch/warehouse_db.launch.py
+[0.583s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/launch/spawn_controllers.launch.py
+[0.583s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/config
+[0.583s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/config/moveit_controllers.yaml
+[0.583s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/config/motoman_hc10dt.ros2_control.xacro
+[0.583s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/config/joint_limits.yaml
+[0.584s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/config/kinematics.yaml
+[0.584s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/config/ros2_controllers.yaml
+[0.584s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/config/pilz_cartesian_limits.yaml
+[0.584s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/config/initial_positions.yaml
+[0.584s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/config/moveit.rviz
+[0.585s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/config/motoman_hc10dt.srdf
+[0.585s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/config/sensors_3d.yaml
+[0.585s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/config/motoman_hc10dt.urdf.xacro
+[0.586s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/urdf
+[0.586s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/urdf/hc10dt.urdf
+[0.587s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/urdf/hc10dt.xacro
+[0.587s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/urdf/hc10dt_macro.xacro
+[0.587s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/urdf/common_materials.xacro
+[0.587s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/urdf/common_colors.xacro
+[0.587s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/meshes
+[0.587s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/meshes/collision
+[0.587s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/meshes/collision/link_6_t.stl
+[0.587s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/meshes/collision/link_5_b.stl
+[0.588s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/meshes/collision/link_3_u.stl
+[0.588s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/meshes/collision/link_4_r.stl
+[0.588s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/meshes/collision/base_link.stl
+[0.589s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/meshes/collision/link_1_s.stl
+[0.589s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/meshes/collision/link_2_l.stl
+[0.590s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/meshes/visual
+[0.590s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/meshes/visual/link_6_t.dae
+[0.591s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/meshes/visual/base_link.dae
+[0.592s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/meshes/visual/link_2_l.dae
+[0.593s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/meshes/visual/link_1_s.dae
+[0.594s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/meshes/visual/link_4_r.dae
+[0.595s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/meshes/visual/link_5_b.dae
+[0.597s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/meshes/visual/link_3_u.dae
+[0.598s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/scripts
+[0.598s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/scripts/demo_move.py
+[0.598s] -- Installing: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/.setup_assistant
+[0.600s] Invoked command in '/home/janperenic/moveit2/build/hc10dt_moveit_config' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/janperenic/moveit2/build/hc10dt_moveit_config

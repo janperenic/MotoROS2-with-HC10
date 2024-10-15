@@ -1,0 +1,1 @@
+/home/janperenic/moveit2/src/hc10dt_moveit_config/launch/move_group.launch.py

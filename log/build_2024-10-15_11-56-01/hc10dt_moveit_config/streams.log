@@ -1,0 +1,61 @@
+[0.016s] Invoking command in '/home/janperenic/moveit2/build/hc10dt_moveit_config': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/janperenic/moveit2/build/hc10dt_moveit_config -- -j16 -l16
+[0.059s] Invoked command in '/home/janperenic/moveit2/build/hc10dt_moveit_config' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/janperenic/moveit2/build/hc10dt_moveit_config -- -j16 -l16
+[0.094s] Invoking command in '/home/janperenic/moveit2/build/hc10dt_moveit_config': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/janperenic/moveit2/build/hc10dt_moveit_config
+[0.102s] -- Install configuration: ""
+[0.102s] -- Execute custom install script
+[0.103s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/ament_index/resource_index/package_run_dependencies/hc10dt_moveit_config
+[0.103s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/ament_index/resource_index/parent_prefix_path/hc10dt_moveit_config
+[0.103s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/environment/ament_prefix_path.sh
+[0.104s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/environment/ament_prefix_path.dsv
+[0.104s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/environment/path.sh
+[0.104s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/environment/path.dsv
+[0.104s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/local_setup.bash
+[0.104s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/local_setup.sh
+[0.104s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/local_setup.zsh
+[0.105s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/local_setup.dsv
+[0.105s] -- Symlinking: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/package.dsv
+[0.117s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/ament_index/resource_index/packages/hc10dt_moveit_config
+[0.117s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/cmake/hc10dt_moveit_configConfig.cmake
+[0.117s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/cmake/hc10dt_moveit_configConfig-version.cmake
+[0.117s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/package.xml
+[0.117s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/launch/demo.launch.py
+[0.118s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/launch/move_group.launch.py
+[0.118s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/launch/moveit_rviz.launch.py
+[0.118s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/launch/rsp.launch.py
+[0.118s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/launch/setup_assistant.launch.py
+[0.118s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/launch/spawn_controllers.launch.py
+[0.118s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/launch/static_virtual_joint_tfs.launch.py
+[0.118s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/launch/warehouse_db.launch.py
+[0.118s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/config/initial_positions.yaml
+[0.118s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/config/joint_limits.yaml
+[0.119s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/config/kinematics.yaml
+[0.119s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/config/motoman_hc10dt.ros2_control.xacro
+[0.119s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/config/motoman_hc10dt.srdf
+[0.119s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/config/motoman_hc10dt.urdf.xacro
+[0.119s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/config/moveit.rviz
+[0.119s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/config/moveit_controllers.yaml
+[0.119s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/config/pilz_cartesian_limits.yaml
+[0.119s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/config/ros2_controllers.yaml
+[0.119s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/config/sensors_3d.yaml
+[0.120s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/urdf/common_colors.xacro
+[0.120s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/urdf/common_materials.xacro
+[0.120s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/urdf/hc10dt.urdf
+[0.120s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/urdf/hc10dt.xacro
+[0.120s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/urdf/hc10dt_macro.xacro
+[0.121s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/meshes/collision/base_link.stl
+[0.121s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/meshes/collision/link_1_s.stl
+[0.121s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/meshes/collision/link_2_l.stl
+[0.121s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/meshes/collision/link_3_u.stl
+[0.121s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/meshes/collision/link_4_r.stl
+[0.121s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/meshes/collision/link_5_b.stl
+[0.121s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/meshes/collision/link_6_t.stl
+[0.121s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/meshes/visual/base_link.dae
+[0.122s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/meshes/visual/link_1_s.dae
+[0.122s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/meshes/visual/link_2_l.dae
+[0.122s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/meshes/visual/link_3_u.dae
+[0.122s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/meshes/visual/link_4_r.dae
+[0.122s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/meshes/visual/link_5_b.dae
+[0.122s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/meshes/visual/link_6_t.dae
+[0.122s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/scripts/demo_move.py
+[0.122s] -- Up-to-date symlink: /home/janperenic/moveit2/install/hc10dt_moveit_config/share/hc10dt_moveit_config/.setup_assistant
+[0.125s] Invoked command in '/home/janperenic/moveit2/build/hc10dt_moveit_config' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/janperenic/moveit2/build/hc10dt_moveit_config

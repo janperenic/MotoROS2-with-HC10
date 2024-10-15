@@ -1,0 +1,1 @@
+/home/janperenic/moveit2/build/hc10dt_moveit_config/ament_cmake_core/hc10dt_moveit_configConfig-version.cmake

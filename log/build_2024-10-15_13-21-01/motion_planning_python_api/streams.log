@@ -1,0 +1,26 @@
+[0.011s] Invoking command in '/home/janperenic/moveit2/build/motion_planning_python_api': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/janperenic/moveit2/build/motion_planning_python_api -- -j16 -l16
+[0.043s] Invoked command in '/home/janperenic/moveit2/build/motion_planning_python_api' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/janperenic/moveit2/build/motion_planning_python_api -- -j16 -l16
+[0.068s] Invoking command in '/home/janperenic/moveit2/build/motion_planning_python_api': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/janperenic/moveit2/build/motion_planning_python_api
+[0.074s] -- Install configuration: "Debug"
+[0.074s] -- Execute custom install script
+[0.074s] -- Up-to-date symlink: /home/janperenic/moveit2/install/motion_planning_python_api/lib/motion_planning_python_api/motion_planning_python_api_tutorial.py
+[0.074s] -- Up-to-date symlink: /home/janperenic/moveit2/install/motion_planning_python_api/lib/motion_planning_python_api/motion_planning_python_api_planning_scene.py
+[0.075s] -- Up-to-date symlink: /home/janperenic/moveit2/install/motion_planning_python_api/share/motion_planning_python_api/config/motion_planning_python_api_tutorial.rviz
+[0.075s] -- Up-to-date symlink: /home/janperenic/moveit2/install/motion_planning_python_api/share/motion_planning_python_api/config/motion_planning_python_api_tutorial.yaml
+[0.075s] -- Up-to-date symlink: /home/janperenic/moveit2/install/motion_planning_python_api/share/motion_planning_python_api/launch/motion_planning_python_api_tutorial.launch.py
+[0.075s] -- Up-to-date symlink: /home/janperenic/moveit2/install/motion_planning_python_api/share/ament_index/resource_index/package_run_dependencies/motion_planning_python_api
+[0.075s] -- Up-to-date symlink: /home/janperenic/moveit2/install/motion_planning_python_api/share/ament_index/resource_index/parent_prefix_path/motion_planning_python_api
+[0.075s] -- Up-to-date symlink: /home/janperenic/moveit2/install/motion_planning_python_api/share/motion_planning_python_api/environment/ament_prefix_path.sh
+[0.075s] -- Up-to-date symlink: /home/janperenic/moveit2/install/motion_planning_python_api/share/motion_planning_python_api/environment/ament_prefix_path.dsv
+[0.076s] -- Up-to-date symlink: /home/janperenic/moveit2/install/motion_planning_python_api/share/motion_planning_python_api/environment/path.sh
+[0.076s] -- Up-to-date symlink: /home/janperenic/moveit2/install/motion_planning_python_api/share/motion_planning_python_api/environment/path.dsv
+[0.076s] -- Up-to-date symlink: /home/janperenic/moveit2/install/motion_planning_python_api/share/motion_planning_python_api/local_setup.bash
+[0.076s] -- Up-to-date symlink: /home/janperenic/moveit2/install/motion_planning_python_api/share/motion_planning_python_api/local_setup.sh
+[0.076s] -- Up-to-date symlink: /home/janperenic/moveit2/install/motion_planning_python_api/share/motion_planning_python_api/local_setup.zsh
+[0.076s] -- Up-to-date symlink: /home/janperenic/moveit2/install/motion_planning_python_api/share/motion_planning_python_api/local_setup.dsv
+[0.076s] -- Symlinking: /home/janperenic/moveit2/install/motion_planning_python_api/share/motion_planning_python_api/package.dsv
+[0.084s] -- Up-to-date symlink: /home/janperenic/moveit2/install/motion_planning_python_api/share/ament_index/resource_index/packages/motion_planning_python_api
+[0.084s] -- Up-to-date symlink: /home/janperenic/moveit2/install/motion_planning_python_api/share/motion_planning_python_api/cmake/motion_planning_python_apiConfig.cmake
+[0.084s] -- Up-to-date symlink: /home/janperenic/moveit2/install/motion_planning_python_api/share/motion_planning_python_api/cmake/motion_planning_python_apiConfig-version.cmake
+[0.085s] -- Up-to-date symlink: /home/janperenic/moveit2/install/motion_planning_python_api/share/motion_planning_python_api/package.xml
+[0.087s] Invoked command in '/home/janperenic/moveit2/build/motion_planning_python_api' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/janperenic/moveit2/build/motion_planning_python_api
