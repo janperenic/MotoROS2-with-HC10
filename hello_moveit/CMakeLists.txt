@@ -18,6 +18,13 @@ target_include_directories(hello_moveit_node PUBLIC
   $<INSTALL_INTERFACE:include>)
 target_compile_features(hello_moveit_node PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
 
+# Add linear_move executable
+add_executable(linear_move_node src/linear_move.cpp)
+target_include_directories(linear_move_node PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>)
+target_compile_features(linear_move_node PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
+
 # Dependencies for hello_moveit_node
 ament_target_dependencies(
   hello_moveit_node
@@ -25,8 +32,17 @@ ament_target_dependencies(
   "moveit_visual_tools"
   "rclcpp"
 )
-# Install hello_moveit executable
-install(TARGETS hello_moveit_node
+
+# Dependencies for linear_move_node
+ament_target_dependencies(
+  linear_move_node
+  "moveit_ros_planning_interface"
+  "moveit_visual_tools"
+  "rclcpp"
+)
+
+# Install hello_moveit and linear_move executables
+install(TARGETS hello_moveit_node linear_move_node
   DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)

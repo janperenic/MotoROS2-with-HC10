@@ -23,11 +23,11 @@ int main(int argc, char * argv[])
 
 	// Create the MoveIt MoveGroup Interface
 	using moveit::planning_interface::MoveGroupInterface;
-	auto move_group_interface = MoveGroupInterface(node, "manipulator");
+	auto move_group_interface = MoveGroupInterface(node, "panda_arm");
 
   // Construct and initialize MoveItVisualTools
   auto moveit_visual_tools = moveit_visual_tools::MoveItVisualTools{
-      node, "base_link", rviz_visual_tools::RVIZ_MARKER_TOPIC,
+      node, "panda_link0", rviz_visual_tools::RVIZ_MARKER_TOPIC,
       move_group_interface.getRobotModel()};
   moveit_visual_tools.deleteAllMarkers();
   moveit_visual_tools.loadRemoteControl();
@@ -48,7 +48,7 @@ int main(int argc, char * argv[])
   auto const draw_trajectory_tool_path =
       [&moveit_visual_tools,
       jmg = move_group_interface.getRobotModel()->getJointModelGroup(
-          "manipulator")](auto const trajectory) {
+          "panda_arm")](auto const trajectory) {
         moveit_visual_tools.publishTrajectoryLine(trajectory, jmg);
       };
 
@@ -66,17 +66,30 @@ int main(int argc, char * argv[])
 	}();
 	move_group_interface.setPoseTarget(target_pose);
 
-	// Create a plan to that target pose
+  // Define the second target pose
+  auto const second_target_pose = []{
+    geometry_msgs::msg::Pose msg;
+    msg.orientation.x = 0.7071;  // Example values
+    msg.orientation.y = 0.7071;
+    msg.orientation.z = 0.0;
+    msg.orientation.w = 0.0;
+    msg.position.x = 0.0;  // Move the end effector 30cm along the x-axis
+    msg.position.y = 0.3;  // y stays the same
+    msg.position.z = 0.6;  // z stays the same
+    return msg;
+  }();
+
+  // Plan to the first target pose
   prompt("Press 'Next' in the RvizVisualToolsGui window to plan");
   draw_title("Planning");
   moveit_visual_tools.trigger();
-	auto const [success, plan] = [&move_group_interface]{
-	  moveit::planning_interface::MoveGroupInterface::Plan msg;
-	  auto const ok = static_cast<bool>(move_group_interface.plan(msg));
-	  return std::make_pair(ok, msg);
-	}();
+  auto const [success, plan] = [&move_group_interface]{
+    moveit::planning_interface::MoveGroupInterface::Plan msg;
+    auto const ok = static_cast<bool>(move_group_interface.plan(msg));
+    return std::make_pair(ok, msg);
+  }();
 
-	// Execute the plan
+  // Execute the plan to the first pose
   if (success) {
     draw_trajectory_tool_path(plan.trajectory_);
     moveit_visual_tools.trigger();
@@ -89,6 +102,58 @@ int main(int argc, char * argv[])
     moveit_visual_tools.trigger();
     RCLCPP_ERROR(logger, "Planning failed!");
   }
+
+  // Set the second target pose
+  move_group_interface.setPoseTarget(second_target_pose);
+
+  // Plan to the second target pose
+  prompt("Press 'Next' in the RvizVisualToolsGui window to plan to second pose");
+  draw_title("Planning to second pose");
+  moveit_visual_tools.trigger();
+  auto const [success2, plan2] = [&move_group_interface]{
+    moveit::planning_interface::MoveGroupInterface::Plan msg;
+    auto const ok = static_cast<bool>(move_group_interface.plan(msg));
+    return std::make_pair(ok, msg);
+  }();
+
+  // Execute the plan to the second pose
+  if (success2) {
+    draw_trajectory_tool_path(plan2.trajectory_);
+    moveit_visual_tools.trigger();
+    prompt("Press 'Next' in the RvizVisualToolsGui window to execute second pose");
+    draw_title("Executing second pose");
+    moveit_visual_tools.trigger();
+    move_group_interface.execute(plan2);
+  } else {
+    draw_title("Planning to second pose Failed!");
+    moveit_visual_tools.trigger();
+    RCLCPP_ERROR(logger, "Planning to second pose failed!");
+  }
+
+////////////////////////////////// Samo za prvo pozo ///////////////////////
+	// // Create a plan to that target pose
+  // prompt("Press 'Next' in the RvizVisualToolsGui window to plan");
+  // draw_title("Planning");
+  // moveit_visual_tools.trigger();
+	// auto const [success, plan] = [&move_group_interface]{
+	//   moveit::planning_interface::MoveGroupInterface::Plan msg;
+	//   auto const ok = static_cast<bool>(move_group_interface.plan(msg));
+	//   return std::make_pair(ok, msg);
+	// }();
+
+	// // Execute the plan
+  // if (success) {
+  //   draw_trajectory_tool_path(plan.trajectory_);
+  //   moveit_visual_tools.trigger();
+  //   prompt("Press 'Next' in the RvizVisualToolsGui window to execute");
+  //   draw_title("Executing");
+  //   moveit_visual_tools.trigger();
+  //   move_group_interface.execute(plan);
+  // } else {
+  //   draw_title("Planning Failed!");
+  //   moveit_visual_tools.trigger();
+  //   RCLCPP_ERROR(logger, "Planning failed!");
+  // }
 
   // Shutdown ROS
   rclcpp::shutdown();
