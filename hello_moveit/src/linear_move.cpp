@@ -20,13 +20,12 @@ plan_to_pose(moveit::planning_interface::MoveGroupInterface &move_group_interfac
 
   if (success) {
     // Visualize the plan
-    moveit_visual_tools.publishTrajectoryLine(plan.trajectory_, move_group_interface.getRobotModel()->getJointModelGroup("panda_arm"));
+    moveit_visual_tools.publishTrajectoryLine(plan.trajectory_, move_group_interface.getRobotModel()->getJointModelGroup("manipulator"));
     moveit_visual_tools.trigger();
     return std::make_pair(true, plan);
   } else {
     RCLCPP_ERROR(logger, "Planning to the target pose failed!");
-    return std::make_pair(false, moveit::planning_interface::MoveGroupInterface::Plan{});
-  }
+    return std::make_pair(false, moveit::planning_interface::MoveGroupInterface::Plan());  }
 }
 
 void execute_plan(moveit::planning_interface::MoveGroupInterface &move_group_interface,
@@ -59,11 +58,11 @@ int main(int argc, char * argv[]) {
 
   // Create the MoveIt MoveGroup Interface
   using moveit::planning_interface::MoveGroupInterface;
-  auto move_group_interface = MoveGroupInterface(node, "panda_arm");
+  auto move_group_interface = MoveGroupInterface(node, "manipulator");
 
   // Construct and initialize MoveItVisualTools
   auto moveit_visual_tools = moveit_visual_tools::MoveItVisualTools{
-      node, "panda_link0", rviz_visual_tools::RVIZ_MARKER_TOPIC,
+      node, "base_link", rviz_visual_tools::RVIZ_MARKER_TOPIC,
       move_group_interface.getRobotModel()};
   moveit_visual_tools.deleteAllMarkers();
   moveit_visual_tools.loadRemoteControl();
@@ -84,7 +83,7 @@ int main(int argc, char * argv[]) {
   auto const draw_trajectory_tool_path =
       [&moveit_visual_tools,
       jmg = move_group_interface.getRobotModel()->getJointModelGroup(
-          "panda_arm")](auto const trajectory) {
+          "manipulator")](auto const trajectory) {
         moveit_visual_tools.publishTrajectoryLine(trajectory, jmg);
       };
 
@@ -95,9 +94,9 @@ int main(int argc, char * argv[]) {
     msg.orientation.y = 0.7071;
     msg.orientation.z = 0.0;
     msg.orientation.w = 0.0;
-    msg.position.x = 0.0;  // Position values
-    msg.position.y = 0.3;
-    msg.position.z = 0.6;
+    msg.position.x = 0.5; //rdeca
+    msg.position.y = 0.0; //zelena
+    msg.position.z = 0.9;
     return msg;
   }();
 
@@ -108,9 +107,9 @@ int main(int argc, char * argv[]) {
     msg.orientation.y = 0.7071;
     msg.orientation.z = 0.0;
     msg.orientation.w = 0.0;
-    msg.position.x = 0.0;
-    msg.position.y = 0.5;
-    msg.position.z = 0.6;
+    msg.position.x = 0.5;
+    msg.position.y = 0.10;
+    msg.position.z = 0.9;
     return msg;
   }();
 
@@ -154,11 +153,16 @@ int main(int argc, char * argv[]) {
   }();
 
   // Plan and execute to the first pose
+  draw_title("Planning to first pose"); 
+  moveit_visual_tools.trigger();  // Trigger the visual tool to display the title
   auto [success, plan] = plan_to_pose(move_group_interface, target_pose, moveit_visual_tools, logger);
   if (success) {
-    prompt("Press 'Next' in the RvizVisualToolsGui window to execute");
-    execute_plan(move_group_interface, plan, moveit_visual_tools, logger);
+      prompt("Press 'Next' in the RvizVisualToolsGui window to execute");
+      draw_title("Executing first pose");  // Add this line before execution
+      moveit_visual_tools.trigger();
+      execute_plan(move_group_interface, plan, moveit_visual_tools, logger);
   }
+
 
   // Plan and execute to the second pose
   auto [success2, plan2] = plan_to_pose(move_group_interface, second_target_pose, moveit_visual_tools, logger);

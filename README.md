@@ -24,5 +24,29 @@ ros2 service call /start_traj_mode motoros2_interfaces/srv/StartTrajMode
 cd moveit2
 colcon build
 source install/local_setup.bash
+ros2 run hello_moveit linear_move_node
+
+
+
 ros2 run hello_moveit hello_moveit_node
+
+ros2 run hello_moveit linear_move_node
+```
+
+# Launch MoveIt2 Task Contructer
+Run it in a seperate terminal
+The phat planer should show TPC folows a 200x200mm square
+u can execute the movemnt witch gear button in upper right corner
+```bash
+cd moveit2
+colcon build
+source install/local_setup.bash
+ros2 launch mtc_tutorial pick_place_demo.launch.py
+```
+
+used with panda for testing
+```bash
+cd ws_moveit2
+source install/local_setup.bash
+ros2 launch moveit2_tutorials mtc_demo.launch.py
 ```

@@ -1,5 +1,5 @@
 """
-A launch file for running the motion planning python api tutorial
+A launch file for running the motion planning python API tutorial with HC10DT robot
 """
 
 import os
@@ -12,14 +12,15 @@ from moveit_configs_utils import MoveItConfigsBuilder
 
 
 def generate_launch_description():
+    # Use your hc10dt_moveit_config package
     moveit_config = (
         MoveItConfigsBuilder(
-            robot_name="panda", package_name="moveit_resources_panda_moveit_config"
+            robot_name="hc10dt", package_name="hc10dt_moveit_config"
         )
-        .robot_description(file_path="config/panda.urdf.xacro")
-        .trajectory_execution(file_path="config/gripper_moveit_controllers.yaml")
+        .robot_description(file_path="urdf/hc10dt_macro.xacro")  # Update with the correct file path
+        .trajectory_execution(file_path="config/moveit_controllers.yaml")  # Update to match your file
         .moveit_cpp(
-            file_path=get_package_share_directory("moveit2_tutorials")
+            file_path=get_package_share_directory("motion_planning_python_api")
             + "/config/motion_planning_python_api_tutorial.yaml"
         )
         .to_moveit_configs()
@@ -33,14 +34,15 @@ def generate_launch_description():
 
     moveit_py_node = Node(
         name="moveit_py",
-        package="moveit2_tutorials",
+        package="motion_planning_python_api",  # Adjust to your actual package name
         executable=LaunchConfiguration("example_file"),
         output="both",
         parameters=[moveit_config.to_dict()],
     )
 
+    # Update RViz configuration file path
     rviz_config_file = os.path.join(
-        get_package_share_directory("moveit2_tutorials"),
+        get_package_share_directory("motion_planning_python_api"),
         "config",
         "motion_planning_python_api_tutorial.rviz",
     )
@@ -62,7 +64,7 @@ def generate_launch_description():
         executable="static_transform_publisher",
         name="static_transform_publisher",
         output="log",
-        arguments=["--frame-id", "world", "--child-frame-id", "panda_link0"],
+        arguments=["--frame-id", "world", "--child-frame-id", "base_link"],  # Adjust for your robot
     )
 
     robot_state_publisher = Node(
@@ -73,11 +75,13 @@ def generate_launch_description():
         parameters=[moveit_config.robot_description],
     )
 
+    # Update ROS2 controllers path for your robot
     ros2_controllers_path = os.path.join(
-        get_package_share_directory("moveit_resources_panda_moveit_config"),
+        get_package_share_directory("hc10dt_moveit_config"),
         "config",
         "ros2_controllers.yaml",
     )
+
     ros2_control_node = Node(
         package="controller_manager",
         executable="ros2_control_node",
@@ -90,8 +94,7 @@ def generate_launch_description():
 
     load_controllers = []
     for controller in [
-        "panda_arm_controller",
-        "panda_hand_controller",
+        "arm_controller",  # Adjust controller names based on your setup
         "joint_state_broadcaster",
     ]:
         load_controllers += [

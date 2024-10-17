@@ -23,11 +23,11 @@ int main(int argc, char * argv[])
 
 	// Create the MoveIt MoveGroup Interface
 	using moveit::planning_interface::MoveGroupInterface;
-	auto move_group_interface = MoveGroupInterface(node, "panda_arm");
+	auto move_group_interface = MoveGroupInterface(node, "manipulator");
 
   // Construct and initialize MoveItVisualTools
   auto moveit_visual_tools = moveit_visual_tools::MoveItVisualTools{
-      node, "panda_link0", rviz_visual_tools::RVIZ_MARKER_TOPIC,
+      node, "base_link", rviz_visual_tools::RVIZ_MARKER_TOPIC,
       move_group_interface.getRobotModel()};
   moveit_visual_tools.deleteAllMarkers();
   moveit_visual_tools.loadRemoteControl();
@@ -48,7 +48,7 @@ int main(int argc, char * argv[])
   auto const draw_trajectory_tool_path =
       [&moveit_visual_tools,
       jmg = move_group_interface.getRobotModel()->getJointModelGroup(
-          "panda_arm")](auto const trajectory) {
+          "manipulator")](auto const trajectory) {
         moveit_visual_tools.publishTrajectoryLine(trajectory, jmg);
       };
 
