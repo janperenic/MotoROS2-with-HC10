@@ -1,0 +1,25 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: hc10dt_moveit_config
+    relative_path: urdf/hc10dt.urdf
+  srdf:
+    relative_path: config/motoman_hc10dt.srdf
+  package_settings:
+    author_name: janperenic
+    author_email: jan.perenic@gmail.com
+    generated_timestamp: 1729581222
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
