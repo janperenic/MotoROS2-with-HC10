@@ -52,7 +52,7 @@ int main(int argc, char *argv[])
         moveit_visual_tools.publishTrajectoryLine(trajectory, jmg);
       };
 
-  // Example Cartesian Path Integration Section
+  // Example Cartesian Path Integration Section (refer to the previous answer)
   std::vector<geometry_msgs::msg::Pose> waypoints;
   geometry_msgs::msg::Pose start_pose = move_group_interface.getCurrentPose().pose;
 
