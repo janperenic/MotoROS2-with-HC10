@@ -5,8 +5,10 @@
     <!-- Import motoman_hc10dt urdf file -->
     <xacro:include filename="$(find hc10dt_moveit_config)/urdf/hc10dt.urdf" />
 
+    <!-- <xacro:include filename="$(find hc10dt_moveit_config)/config/motoman_hc10dt.ros2_control.xacro" /> -->
+
     <!-- Import control_xacro -->
-    <xacro:include filename="motoman_hc10dt.ros2_control.xacro" />
+    <!-- <xacro:include filename="motoman_hc10dt.ros2_control.xacro" /> -->
 
 
     <!-- <xacro:motoman_hc10dt_ros2_control name="FakeSystem" initial_positions_file="$(arg initial_positions_file)"/> -->

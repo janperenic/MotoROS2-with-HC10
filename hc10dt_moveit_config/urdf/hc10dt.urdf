@@ -4,7 +4,12 @@
 <!-- |    EDITING THIS FILE BY HAND IS NOT RECOMMENDED                                 | -->
 <!-- =================================================================================== -->
 <robot name="motoman_hc10dt">
-  <!-- link list -->
+
+  <!-- Define the world link -->
+  <link name="world"/>
+  <link name="base"/>
+
+  <!-- Base Link -->
   <link name="base_link">
     <visual>
       <geometry>
@@ -20,6 +25,8 @@
       </geometry>
     </collision>
   </link>
+
+  <!-- Robot Links -->
   <link name="link_1">
     <visual>
       <geometry>
@@ -35,6 +42,7 @@
       </geometry>
     </collision>
   </link>
+
   <link name="link_2">
     <visual>
       <geometry>
@@ -50,6 +58,7 @@
       </geometry>
     </collision>
   </link>
+
   <link name="link_3">
     <visual>
       <geometry>
@@ -65,6 +74,7 @@
       </geometry>
     </collision>
   </link>
+
   <link name="link_4">
     <visual>
       <geometry>
@@ -80,6 +90,7 @@
       </geometry>
     </collision>
   </link>
+
   <link name="link_5">
     <visual>
       <geometry>
@@ -95,6 +106,7 @@
       </geometry>
     </collision>
   </link>
+
   <link name="link_6">
     <visual>
       <geometry>
@@ -110,9 +122,23 @@
       </geometry>
     </collision>
   </link>
+
   <link name="tool0"/>
-  <!-- end of link list -->
-  <!-- joint list -->
+
+  <!-- World to Base Link -->
+  <joint name="world_to_base_link" type="fixed">
+    <parent link="world"/>
+    <child link="base_link"/>
+    <origin rpy="0 0 0" xyz="0 0 0.275"/>
+  </joint>
+
+  <joint name="base_link-base" type="fixed">
+    <parent link="base_link"/>
+    <child link="base"/>
+    <origin rpy="0 0 0" xyz="0 0 0.275"/>
+  </joint>
+
+  <!-- Joint Definitions -->
   <joint name="joint_1" type="revolute">
     <parent link="base_link"/>
     <child link="link_1"/>
@@ -120,6 +146,7 @@
     <axis xyz="0 0 1"/>
     <limit effort="368.48" lower="-3.141592653589793" upper="3.141592653589793" velocity="2.2689280275926285"/>
   </joint>
+
   <joint name="joint_2" type="revolute">
     <parent link="link_1"/>
     <child link="link_2"/>
@@ -127,6 +154,7 @@
     <axis xyz="0 1 0"/>
     <limit effort="368.48" lower="-3.141592653589793" upper="3.141592653589793" velocity="2.2689280275926285"/>
   </joint>
+
   <joint name="joint_3" type="revolute">
     <parent link="link_2"/>
     <child link="link_3"/>
@@ -134,6 +162,7 @@
     <axis xyz="0 -1 0"/>
     <limit effort="141.12" lower="-0.08726646259971647" upper="6.19591884457987" velocity="3.141592653589793"/>
   </joint>
+
   <joint name="joint_4" type="revolute">
     <parent link="link_3"/>
     <child link="link_4"/>
@@ -141,6 +170,7 @@
     <axis xyz="0 0 1"/>
     <limit effort="39.20" lower="-3.141592653589793" upper="3.141592653589793" velocity="3.141592653589793"/>
   </joint>
+
   <joint name="joint_5" type="revolute">
     <parent link="link_4"/>
     <child link="link_5"/>
@@ -148,6 +178,7 @@
     <axis xyz="0 -1 0"/>
     <limit effort="31.36" lower="-3.141592653589793" upper="3.141592653589793" velocity="4.363323129985824"/>
   </joint>
+
   <joint name="joint_6" type="revolute">
     <parent link="link_5"/>
     <child link="link_6"/>
@@ -155,17 +186,11 @@
     <axis xyz="0 0 1"/>
     <limit effort="31.36" lower="-3.141592653589793" upper="3.141592653589793" velocity="4.363323129985824"/>
   </joint>
+
   <joint name="joint_6-tool0" type="fixed">
     <origin rpy="3.141592653589793 0 0" xyz="0 0 -0.170"/>
     <parent link="link_6"/>
     <child link="tool0"/>
   </joint>
-  <!-- end of joint list -->
-  <!-- ROS base_link to Robot Manufacturer World Coordinates transform -->
-  <link name="base"/>
-  <joint name="base_link-base" type="fixed">
-    <origin rpy="0 0 0" xyz="0 0 0.275"/>
-    <parent link="base_link"/>
-    <child link="base"/>
-  </joint>
+
 </robot>

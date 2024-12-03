@@ -48,25 +48,25 @@ int main(int argc, char * argv[])
   point1.position.x = 0.5;
   point1.position.y = -0.176;
   point1.position.z = 0.85;
-  point1.orientation.x = -0.346;
-  point1.orientation.y = 0.938;
-  point1.orientation.z = 0.0000275;
-  point1.orientation.w = 0.000747;
+  point1.orientation.x = 0.0;
+  point1.orientation.y = 0.0;
+  point1.orientation.z = 0.0;
+  point1.orientation.w = 1.0;
   waypoints.push_back(point1);
 
   // Second point
   geometry_msgs::msg::Pose point2 = point1;
-  point2.position.x += 0.4;
+  point2.position.x += 0.1;
   waypoints.push_back(point2);
 
   // Third point
   geometry_msgs::msg::Pose point3 = point2;
-  point3.position.y += 0.4;
+  point3.position.y += 0.1;
   waypoints.push_back(point3);
 
   // Fourth point
   geometry_msgs::msg::Pose point4 = point3;
-  point4.position.x -= 0.4;
+  point4.position.x -= 0.1;
   waypoints.push_back(point4);
 
   // Return to the starting point 

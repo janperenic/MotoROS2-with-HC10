@@ -4,7 +4,7 @@ cd moveit2
 colcon build
 source install/local_setup.bash
 ros2 launch hc10dt_moveit_config demo.launch.py 
-# V demo.launch.py mors spremenit package name ko gres iz simulacije na orbota in obratno
+# V demo.launch.py mors spremenit package name ko gres iz simulacije na robota in obratno
 
 # za robota
 ros2 launch hc10dt_moveit_config demo.launch.py 
@@ -62,6 +62,20 @@ cd ws_moveit2
 colcon build
 source install/local_setup.bash
 ros2 launch moveit2_tutorials mtc_demo.launch.py
+```
+
+
+## TODO:
+-naredi neko spremenljivko v ptp_move k ti doloc velikost kvadrata. mogoce lah dam vec razlicnih velikosti 20x20/40x40/60x60
+-naredi spremeljviko za start kr direkt v moveit lah nastavs start1 start2 start3 in pol lah startas od lin premike od tm kjer hocs ce so ksne razlike mogoce ?
+-v ptp mors nastavt start direkt v kodi tko da lah jih spremenis v ene 3 razlicne tocke
+
+-poglej tf transorme v urdf filu zato da mas ista imena kot robot!!!
+
+
+To get tf frame type this comand in another terminal
+```bash
+ros2 run tf2_tools view_frames
 ```
 
 
