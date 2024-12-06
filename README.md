@@ -81,3 +81,24 @@ ros2 run tf2_tools view_frames
 
 
 ros2 run moveit_task_constructor_demo cartesian
+
+
+
+
+
+
+
+
+
+
+
+
+- If the planing with hello_moveit dost work delite all _planning files from config folder
+- if you have problems with srdf in hello_moveit delite                
+            # moveit_config.robot_description,
+            # moveit_config.robot_description_semantic, in rviz-node
+
+- If you have problem with tf use this to see what is going on: 
+```bash
+ros2 run tf2_tools view_frames
+```

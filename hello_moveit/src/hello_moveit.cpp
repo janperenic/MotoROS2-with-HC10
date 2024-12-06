@@ -75,6 +75,7 @@ int main(int argc, char *argv[])
 
   // Move up 20 cm and adjust other axes
   target_pose.position.x += 0.1;
+  target_pose.position.z -= 0.1;
   waypoints.push_back(target_pose);
 
   // Compute Cartesian Path

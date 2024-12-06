@@ -154,110 +154,9 @@
 
 
 
-
-
-
-
-
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-#  pilz ne dela
-
-
-
-
-# import os
-# from launch import LaunchDescription
-# from launch.actions import DeclareLaunchArgument
-# from launch.substitutions import LaunchConfiguration
-# from launch_ros.actions import Node
-# from ament_index_python.packages import get_package_share_directory
-# from moveit_configs_utils import MoveItConfigsBuilder
-# import xacro
-
-# def generate_launch_description():
-#     db_arg = DeclareLaunchArgument("warehouse_host", default_value="", description="Database connection path")
-
-#     package_share_path = get_package_share_directory("hc10dt_moveit_config")
-
-#     robot_description_file_path = os.path.join(package_share_path, "config", "motoman_hc10dt.urdf.xacro")
-
-#     robot_description_semantic_file_path = os.path.join(package_share_path, "config", "motoman_hc10dt.srdf")
-
-#     trajectory_execution_file_path = os.path.join(package_share_path, "config", "moveit_controllers.yaml")
-
-#     rviz_config_file_path = os.path.join(package_share_path, "config", "moveit.rviz")
-
-#     kinematics_file_path = os.path.join(package_share_path, "config", "kinematics.yaml")
-
-#     pilz_planner_file_path = os.path.join(package_share_path, "config", "pilz_industrial_motion_planner_planning.yaml")
-
-#     robot_description_contents = xacro.process_file(robot_description_file_path).toxml()
-
-#     warehouse_ros_config = {
-#         "warehouse_plugin": "warehouse_ros_sqlite::DatabaseConnection",
-#         "warehouse_host": LaunchConfiguration("warehouse_host")
-#     }
-
-#     moveit_config = (MoveItConfigsBuilder("motoman_hc10dt", package_name="hc10dt_moveit_config")
-#                      .robot_description(file_path="config/motoman_hc10dt.urdf.xacro")
-#                      .robot_description_semantic(file_path="config/motoman_hc10dt.srdf")
-#                      .trajectory_execution(file_path="config/moveit_controllers.yaml")
-#                      .robot_description_kinematics(file_path="config/kinematics.yaml")
-#                      .planning_scene_monitor(publish_robot_description_semantic=True)
-#                      .planning_pipelines(pipelines=["pilz_industrial_motion_planner", "ompl"], additional_configs=[pilz_planner_file_path])
-#                      .to_moveit_configs()    
-#     )
-
-#     # Start the actual move_group node/action server
-#     move_group_node = Node(
-#         package="moveit_ros_move_group",
-#         executable="move_group",
-#         output="screen",
-#         parameters=[moveit_config.to_dict(), warehouse_ros_config, {"use_octomap": False}],
-#         arguments=["--ros-args", "--log-level", "info"],
-#     )
-
-#     rviz_node = Node(
-#         package="rviz2",
-#         executable="rviz2",
-#         name="rviz2",
-#         output="log",
-#         arguments=["-d", rviz_config_file_path],
-#         parameters=[
-#             moveit_config.robot_description_kinematics,
-#             moveit_config.planning_pipelines,
-#             moveit_config.joint_limits,
-#             warehouse_ros_config,
-#         ],
-#     )
-
-#     robot_state_publisher_node = Node(
-#         package="robot_state_publisher",
-#         executable="robot_state_publisher",
-#         name="robot_state_publisher",
-#         output="both",
-#         parameters=[{'robot_description': robot_description_contents}]
-#     )
-
-#     return LaunchDescription(
-#         [
-#             db_arg,
-#             move_group_node,
-#             rviz_node,
-#             robot_state_publisher_node,
-#         ]
-#     )
-
-
-
-
-
-
-
-
-
-# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-# Uradmno dela !!!!!!!!! 
+# Dela robot z markerjom samo nek cudn error ko zazenes skriptio da ne
+# zazna srdf-ja kar je problem  ker ne morm zalaufat skripte
 
 import os
 from launch import LaunchDescription
@@ -300,22 +199,16 @@ def generate_launch_description():
     #     .to_moveit_configs()
     # )
 
-
-    # .planning_pipelines(pipelines=["ompl", "pilz_industrial_motion_planner"]) # pilz_industrial_motion_planner, ompl
-
-    #                      .planning_pipelines(
-    #                     pipelines=["ompl", "pilz_industrial_motion_planner"],
-    #                     default_planning_pipeline="pilz_industrial_motion_planner",
-    # )
-
     moveit_config = (MoveItConfigsBuilder("motoman_hc10dt", package_name="hc10dt_moveit_config")
+                     .planning_pipelines(pipelines=["ompl"]) # pilz_industrial_motion_planner
                      .robot_description(file_path="config/motoman_hc10dt.urdf.xacro")
                      .robot_description_semantic(file_path="config/motoman_hc10dt.srdf")
                      .trajectory_execution(file_path="config/moveit_controllers.yaml")
                      .robot_description_kinematics(file_path="config/kinematics.yaml")
-                     .planning_scene_monitor(publish_robot_description_semantic=True)
-                    #  .planning_pipelines(pipelines=["pilz_industrial_motion_planner"]) # pilz_industrial_motion_planner, ompl
-                     .to_moveit_configs()    
+                     .planning_scene_monitor(
+        publish_robot_description_semantic=True
+    )
+        .to_moveit_configs()
     )
     # Starts Pilz Industrial Motion Planner MoveGroupSequenceAction and MoveGroupSequenceService servers
     # move_group_capabilities = {
