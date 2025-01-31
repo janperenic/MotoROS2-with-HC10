@@ -4,6 +4,9 @@ cd moveit2
 colcon build
 source install/local_setup.bash
 ros2 launch hc10dt_moveit_config demo.launch.py 
+
+
+ros2 launch hc20_moveit_config demo.launch.py
 # V demo.launch.py mors spremenit package name ko gres iz simulacije na robota in obratno
 
 # za robota
@@ -78,7 +81,9 @@ To get tf frame type this comand in another terminal
 ros2 run tf2_tools view_frames
 ```
 
-
+```bash
+ros2 run rqt_gui rqt_gui
+```
 
 ros2 run moveit_task_constructor_demo cartesian
 

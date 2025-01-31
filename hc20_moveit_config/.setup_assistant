@@ -1,0 +1,10 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: hc20_moveit_config
+    relative_path: urdf/hc20.urdf
+  srdf:
+    relative_path: config/motoman_hc20.srdf
+  package_settings:
+    author_name: Jan Perenic
+    author_email: jan.perenic@gmail.com
+    generated_timestamp: 1727440012
