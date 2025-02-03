@@ -78,7 +78,7 @@ int main(int argc, char* argv[])
     // Define a base pose to use as a reference for all movements
     geometry_msgs::msg::Pose base_pose;
     base_pose.position.x = 0.5;
-    base_pose.position.y = 0.1;
+    base_pose.position.y = 0.15;
     base_pose.position.z = 1.25;
     base_pose.orientation.x = 0.0;
     base_pose.orientation.y = 0.0;
@@ -111,7 +111,7 @@ int main(int argc, char* argv[])
 
     trajectory_sets.push_back(waypoints_set1); // Add to list of trajectories
 
-    // Set 2: Square movement in Y axis
+    // Set 2: Lin move Y axis
     std::vector<geometry_msgs::msg::Pose> waypoints_set2;
     geometry_msgs::msg::Pose point1_Y = base_pose;
     waypoints_set2.push_back(point1_Y);
@@ -132,7 +132,7 @@ int main(int argc, char* argv[])
 
     trajectory_sets.push_back(waypoints_set2); // Add to list of trajectories
 
-    // Set 3: Movement in Z direction
+    // Set 3: Lin move Z axis
     std::vector<geometry_msgs::msg::Pose> waypoints_set3;
     geometry_msgs::msg::Pose point1_Z = base_pose;
     waypoints_set3.push_back(point1_Z);
@@ -153,26 +153,129 @@ int main(int argc, char* argv[])
 
     trajectory_sets.push_back(waypoints_set3);
 
-    // Set 3: Movement in Z direction
+    // ###############  LIN 20  ############### 
+
+    // Set 4: Lin move X axis (0.2m)
     std::vector<geometry_msgs::msg::Pose> waypoints_set4;
-    geometry_msgs::msg::Pose point1_X20 = base_pose;
-    waypoints_set4.push_back(point1_X20);
+    geometry_msgs::msg::Pose point1_X2 = base_pose;
+    waypoints_set4.push_back(point1_X2);
 
-    geometry_msgs::msg::Pose point2_X20 = base_pose;
-    point2_X20.position.x += 0.2;
-    waypoints_set4.push_back(point2_X20);
+    geometry_msgs::msg::Pose point2_X2 = base_pose;
+    point2_X2.position.x += 0.2;
+    waypoints_set4.push_back(point2_X2);
 
-    geometry_msgs::msg::Pose point3_X20 = base_pose;
-    point3_X20.position.x -= 0.2;
-    waypoints_set4.push_back(point3_X20);
+    geometry_msgs::msg::Pose point3_X2 = base_pose;
+    point3_X2.position.x -= 0.2;
+    waypoints_set4.push_back(point3_X2);
 
-    geometry_msgs::msg::Pose point4_X20 = base_pose;
-    point4_X20.position.x -= 0.2;
-    waypoints_set4.push_back(point4_X20);
+    geometry_msgs::msg::Pose point4_X2 = base_pose;
+    point4_X2.position.x -= 0.2;
+    waypoints_set4.push_back(point4_X2);
 
-    waypoints_set4.push_back(point1_X20);
+    waypoints_set4.push_back(point1_X2); // Return to start
 
     trajectory_sets.push_back(waypoints_set4);
+
+    // Set 5: Lin move Y axis (0.2m)
+    std::vector<geometry_msgs::msg::Pose> waypoints_set5;
+    geometry_msgs::msg::Pose point1_Y2 = base_pose;
+    waypoints_set5.push_back(point1_Y2);
+
+    geometry_msgs::msg::Pose point2_Y2 = base_pose;
+    point2_Y2.position.y += 0.2;
+    waypoints_set5.push_back(point2_Y2);
+
+    geometry_msgs::msg::Pose point3_Y2 = base_pose;
+    point3_Y2.position.y -= 0.2;
+    waypoints_set5.push_back(point3_Y2);
+
+    geometry_msgs::msg::Pose point4_Y2 = base_pose;
+    point4_Y2.position.y -= 0.2;
+    waypoints_set5.push_back(point4_Y2);
+
+    waypoints_set5.push_back(point1_Y2);
+
+    trajectory_sets.push_back(waypoints_set5);
+
+    // Set 6: Lin move Z axis (0.2m)
+    std::vector<geometry_msgs::msg::Pose> waypoints_set6;
+    geometry_msgs::msg::Pose point1_Z2 = base_pose;
+    waypoints_set6.push_back(point1_Z2);
+
+    geometry_msgs::msg::Pose point2_Z2 = base_pose;
+    point2_Z2.position.z += 0.2;
+    waypoints_set6.push_back(point2_Z2);
+
+    geometry_msgs::msg::Pose point3_Z2 = base_pose;
+    point3_Z2.position.z -= 0.2;
+    waypoints_set6.push_back(point3_Z2);
+
+    geometry_msgs::msg::Pose point4_Z2 = base_pose;
+    point4_Z2.position.z -= 0.2;
+    waypoints_set6.push_back(point4_Z2);
+
+    waypoints_set6.push_back(point1_Z2);
+
+    trajectory_sets.push_back(waypoints_set6);
+
+    // ###############  PLANE 10 ###############
+
+    // Set 7: Plane XY move  (0.1m steps)
+    // std::vector<geometry_msgs::msg::Pose> waypoints_set7;
+    // geometry_msgs::msg::Pose point1_XY1 = base_pose;
+    // waypoints_set7.push_back(point1_YX1);
+
+    // geometry_msgs::msg::Pose point2_YX1 = base_pose;
+    // point2_YX1.position.y += 0.1;
+    // waypoints_set7.push_back(point2_YX1);
+
+    // geometry_msgs::msg::Pose point3_YX1 = base_pose;
+    // point3_YX1.position.x += 0.1;
+    // waypoints_set7.push_back(point3_YX1);
+
+    // geometry_msgs::msg::Pose point4_YX1 = base_pose;
+    // point4_YX1.position.y -= 0.1;
+    // waypoints_set7.push_back(point4_YX1);
+
+    // waypoints_set7.push_back(point1_YX1);
+
+    // trajectory_sets.push_back(waypoints_set7);
+
+    std::vector<geometry_msgs::msg::Pose> waypoints_set7;
+
+    // Start at base_pose
+    geometry_msgs::msg::Pose point1_XY1 = base_pose;
+    waypoints_set7.push_back(point1_XY1);
+
+    // Move to Point 1: (X fixed, Y + 0.1)
+    geometry_msgs::msg::Pose point2_XY1 = base_pose;
+    point2_XY1.position.y += 0.1;
+    waypoints_set7.push_back(point2_XY1);
+
+    // Move to Point 2: (X + 0.1, Y + 0.1)
+    geometry_msgs::msg::Pose point3_XY1 = base_pose;
+    point3_XY1.position.x += 0.1;
+    point3_XY1.position.y += 0.1;
+    waypoints_set7.push_back(point3_XY1);
+
+    // Move to Point 3: (X + 0.1, Y - 0.1)
+    geometry_msgs::msg::Pose point4_XY1 = base_pose;
+    point4_XY1.position.x += 0.1;
+    point4_XY1.position.y -= 0.1;
+    waypoints_set7.push_back(point4_XY1);
+
+    // Move to Point 4: (X, Y - 0.1)
+    geometry_msgs::msg::Pose point5_XY1 = base_pose;
+    point4_XY1.position.x -= 0.1;
+    point5_XY1.position.y -= 0.1;
+    waypoints_set7.push_back(point5_XY1);
+
+    // Return to Start
+    waypoints_set7.push_back(point1_XY1);
+
+    trajectory_sets.push_back(waypoints_set7);
+
+
 
 
 

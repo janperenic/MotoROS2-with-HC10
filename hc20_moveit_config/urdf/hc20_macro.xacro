@@ -7,7 +7,7 @@
     <link name="${prefix}base_link">
       <visual>
         <geometry>
-          <mesh filename="package://hc20_moveit_config/meshesvisual/base_link.stl"/>
+          <mesh filename="package://hc20_moveit_config/meshes/visual/base_link.stl"/>
         </geometry>
         <xacro:material_yaskawa_blue/>
       </visual>
@@ -72,7 +72,7 @@
     <link name="${prefix}link_5">
       <visual>
         <geometry>
-          <mesh filename="package://hc20_moveit_config/meshes/visual/link_5_b.stl"/>
+          <mesh filename="package://hc20_moveit_config/meshes/visual/link_5_b.dae"/>
         </geometry>
         <xacro:material_yaskawa_blue/>
       </visual>
@@ -85,7 +85,7 @@
     <link name="${prefix}link_6">
       <visual>
         <geometry>
-          <mesh filename="package://hc20_moveit_config/meshes/visual/link_6_t.stl"/>
+          <mesh filename="package://hc20_moveit_config/meshes/visual/link_6_t.dae"/>
         </geometry>
         <xacro:material_yaskawa_blue/>
       </visual>
@@ -104,7 +104,7 @@
       <child link="${prefix}link_1"/>
       <origin xyz="0 0 0.380" rpy="0 0 0" />
       <axis xyz="0 0 1" />
-      <limit lower="${radians(-180)}" upper="${radians(180)}" effort="917.28" velocity="${radians(80)}"/>
+      <limit lower="${radians(-210)}" upper="${radians(210)}" effort="917.28" velocity="${radians(80)}"/>
     </joint>
     <joint name="${prefix}joint_2" type="revolute">
       <parent link="${prefix}link_1"/>
