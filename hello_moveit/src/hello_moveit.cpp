@@ -6,13 +6,16 @@
 #include <moveit/move_group_interface/move_group_interface.h>
 #include <moveit_visual_tools/moveit_visual_tools.h>
 
-// Function to execute a set of waypoints
-void execute_waypoints(
+// Function to execute a set of waypoints and calculate average speed
+double execute_waypoints(
     moveit::planning_interface::MoveGroupInterface& move_group_interface,
     moveit_visual_tools::MoveItVisualTools& moveit_visual_tools,
     const std::vector<geometry_msgs::msg::Pose>& waypoints,
     const rclcpp::Logger& logger)
 {
+    double total_speed = 0.0;
+    size_t speed_count = 0; // Number of velocity data points
+
     for (size_t i = 0; i < waypoints.size(); ++i)
     {
         move_group_interface.setPoseTarget(waypoints[i]);
@@ -25,7 +28,33 @@ void execute_waypoints(
             RCLCPP_INFO(logger, "Executing move to waypoint %zu", i + 1);
             move_group_interface.execute(plan);
 
-            // Draw the path in RViz
+            // Extract velocity from trajectory
+            if (!plan.trajectory_.joint_trajectory.points.empty())
+            {
+                for (size_t j = 0; j < plan.trajectory_.joint_trajectory.points.size(); ++j)
+                {
+                    auto velocities = plan.trajectory_.joint_trajectory.points[j].velocities;
+                    double speed = 0.0;
+
+                    // Compute speed as the magnitude of joint velocities
+                    for (double v : velocities)
+                    {
+                        speed += v * v; // Sum of squared velocities
+                    }
+                    speed = std::sqrt(speed); // Convert to scalar speed
+
+                    total_speed += speed;
+                    speed_count++;
+
+                    // RCLCPP_INFO(logger, "Waypoint %zu, Time: %.2f sec, Speed: %.3f rad/s", 
+                    //             j, 
+                    //             plan.trajectory_.joint_trajectory.points[j].time_from_start.sec + 
+                    //             plan.trajectory_.joint_trajectory.points[j].time_from_start.nanosec * 1e-9,
+                    //             speed);
+                }
+            }
+
+            // Visualize trajectory in RViz
             moveit_visual_tools.publishTrajectoryLine(plan.trajectory_, move_group_interface.getRobotModel()->getJointModelGroup("manipulator"));
             moveit_visual_tools.trigger();
         }
@@ -35,7 +64,14 @@ void execute_waypoints(
             break;
         }
     }
+
+    // Calculate and return the average speed for this trajectory
+    double avg_speed = (speed_count > 0) ? (total_speed / speed_count) : 0.0;
+    RCLCPP_INFO(logger, "Average speed for this trajectory: %.3f rad/s", avg_speed);
+
+    return avg_speed;
 }
+
 
 int main(int argc, char* argv[])
 {
@@ -61,8 +97,8 @@ int main(int argc, char* argv[])
     move_group_interface.setPlanningPipelineId("pilz_industrial_motion_planner");
     move_group_interface.setPlannerId("PTP"); // Set to 'PTP' for point-to-point movement
     move_group_interface.setPlanningTime(20.0);
-    move_group_interface.setMaxVelocityScalingFactor(0.99);
-    move_group_interface.setMaxAccelerationScalingFactor(0.5);
+    move_group_interface.setMaxVelocityScalingFactor(1.0);
+    move_group_interface.setMaxAccelerationScalingFactor(1.0);
 
     // Construct and initialize MoveItVisualTools
     auto moveit_visual_tools = moveit_visual_tools::MoveItVisualTools{node, "base_link", rviz_visual_tools::RVIZ_MARKER_TOPIC};
@@ -131,7 +167,7 @@ int main(int argc, char* argv[])
     waypoints_set2.push_back(point1_Y);
 
     trajectory_sets.push_back(waypoints_set2); // Add to list of trajectories
-
+ 
     // Set 3: Lin move Z axis
     std::vector<geometry_msgs::msg::Pose> waypoints_set3;
     geometry_msgs::msg::Pose point1_Z = base_pose;
@@ -220,78 +256,235 @@ int main(int argc, char* argv[])
 
     // ###############  PLANE 10 ###############
 
-    // Set 7: Plane XY move  (0.1m steps)
-    // std::vector<geometry_msgs::msg::Pose> waypoints_set7;
-    // geometry_msgs::msg::Pose point1_XY1 = base_pose;
-    // waypoints_set7.push_back(point1_YX1);
+    // ###############  PLANE XY ###############
 
-    // geometry_msgs::msg::Pose point2_YX1 = base_pose;
-    // point2_YX1.position.y += 0.1;
-    // waypoints_set7.push_back(point2_YX1);
-
-    // geometry_msgs::msg::Pose point3_YX1 = base_pose;
-    // point3_YX1.position.x += 0.1;
-    // waypoints_set7.push_back(point3_YX1);
-
-    // geometry_msgs::msg::Pose point4_YX1 = base_pose;
-    // point4_YX1.position.y -= 0.1;
-    // waypoints_set7.push_back(point4_YX1);
-
-    // waypoints_set7.push_back(point1_YX1);
-
-    // trajectory_sets.push_back(waypoints_set7);
-
+    // Set 7: Plane XY move (0.1m steps)
     std::vector<geometry_msgs::msg::Pose> waypoints_set7;
 
     // Start at base_pose
     geometry_msgs::msg::Pose point1_XY1 = base_pose;
     waypoints_set7.push_back(point1_XY1);
 
-    // Move to Point 1: (X fixed, Y + 0.1)
+    // Move to Point 1: (Y + 0.1)
     geometry_msgs::msg::Pose point2_XY1 = base_pose;
     point2_XY1.position.y += 0.1;
     waypoints_set7.push_back(point2_XY1);
 
-    // Move to Point 2: (X + 0.1, Y + 0.1)
-    geometry_msgs::msg::Pose point3_XY1 = base_pose;
+    // Move to Point 2: (X + 0.1)
+    geometry_msgs::msg::Pose point3_XY1 = point2_XY1;
     point3_XY1.position.x += 0.1;
-    point3_XY1.position.y += 0.1;
     waypoints_set7.push_back(point3_XY1);
 
-    // Move to Point 3: (X + 0.1, Y - 0.1)
-    geometry_msgs::msg::Pose point4_XY1 = base_pose;
-    point4_XY1.position.x += 0.1;
+    // Move to Point 3: (Y - 0.1)
+    geometry_msgs::msg::Pose point4_XY1 = point3_XY1;
     point4_XY1.position.y -= 0.1;
     waypoints_set7.push_back(point4_XY1);
 
-    // Move to Point 4: (X, Y - 0.1)
-    geometry_msgs::msg::Pose point5_XY1 = base_pose;
-    point4_XY1.position.x -= 0.1;
-    point5_XY1.position.y -= 0.1;
+    // Move to Point 4: (X - 0.1) - Back to original X
+    geometry_msgs::msg::Pose point5_XY1 = point4_XY1;
+    point5_XY1.position.x -= 0.1;
     waypoints_set7.push_back(point5_XY1);
 
-    // Return to Start
-    waypoints_set7.push_back(point1_XY1);
+    // Robot naturally returns to base_pose
 
     trajectory_sets.push_back(waypoints_set7);
 
 
+    // ###############  PLANE YZ ###############
+
+    // Set 8: Plane YZ move (0.1m steps)
+    std::vector<geometry_msgs::msg::Pose> waypoints_set8;
+
+    // Start at base_pose
+    geometry_msgs::msg::Pose point1_YZ1 = base_pose;
+    waypoints_set8.push_back(point1_YZ1);
+
+    // Move to Point 1: (Z + 0.1)
+    geometry_msgs::msg::Pose point2_YZ1 = base_pose;
+    point2_YZ1.position.z += 0.1;
+    waypoints_set8.push_back(point2_YZ1);
+
+    // Move to Point 2: (Y + 0.1)
+    geometry_msgs::msg::Pose point3_YZ1 = point2_YZ1;
+    point3_YZ1.position.y += 0.1;
+    waypoints_set8.push_back(point3_YZ1);
+
+    // Move to Point 3: (Z - 0.1)
+    geometry_msgs::msg::Pose point4_YZ1 = point3_YZ1;
+    point4_YZ1.position.z -= 0.1;
+    waypoints_set8.push_back(point4_YZ1);
+
+    // Move to Point 4: (Y - 0.1) - Back to original Y
+    geometry_msgs::msg::Pose point5_YZ1 = point4_YZ1;
+    point5_YZ1.position.y -= 0.1;
+    waypoints_set8.push_back(point5_YZ1);
+
+    // Robot naturally returns to base_pose
+
+    trajectory_sets.push_back(waypoints_set8);
+
+
+    // ###############  PLANE XZ ###############
+
+    // Set 9: Plane XZ move (0.1m steps)
+    std::vector<geometry_msgs::msg::Pose> waypoints_set9;
+
+    // Start at base_pose
+    geometry_msgs::msg::Pose point1_XZ1 = base_pose;
+    waypoints_set9.push_back(point1_XZ1);
+
+    // Move to Point 1: (Z + 0.1)
+    geometry_msgs::msg::Pose point2_XZ1 = base_pose;
+    point2_XZ1.position.z += 0.1;
+    waypoints_set9.push_back(point2_XZ1);
+
+    // Move to Point 2: (X + 0.1)
+    geometry_msgs::msg::Pose point3_XZ1 = point2_XZ1;
+    point3_XZ1.position.x += 0.1;
+    waypoints_set9.push_back(point3_XZ1);
+
+    // Move to Point 3: (Z - 0.1)
+    geometry_msgs::msg::Pose point4_XZ1 = point3_XZ1;
+    point4_XZ1.position.z -= 0.1;
+    waypoints_set9.push_back(point4_XZ1);
+
+    // Move to Point 4: (X - 0.1) - Back to original X
+    geometry_msgs::msg::Pose point5_XZ1 = point4_XZ1;
+    point5_XZ1.position.x -= 0.1;
+    waypoints_set9.push_back(point5_XZ1);
+
+    // Robot naturally returns to base_pose
+
+    trajectory_sets.push_back(waypoints_set9);
+
+    // ###############  PLANE 20 ###############
+
+    // ###############  PLANE XY (Continued) ###############
+
+    // Set 10: Plane XY move (0.2m steps)
+    std::vector<geometry_msgs::msg::Pose> waypoints_set10;
+
+    // Start from where Set 7 (10 cm movement) ended
+    geometry_msgs::msg::Pose point1_XY2 = waypoints_set7.back();  
+    waypoints_set10.push_back(point1_XY2);
+
+    // Move to Point 1: (Y + 0.2)
+    geometry_msgs::msg::Pose point2_XY2 = point1_XY2;
+    point2_XY2.position.y += 0.2;
+    waypoints_set10.push_back(point2_XY2);
+
+    // Move to Point 2: (X + 0.2)
+    geometry_msgs::msg::Pose point3_XY2 = point2_XY2;
+    point3_XY2.position.x += 0.2;
+    waypoints_set10.push_back(point3_XY2);
+
+    // Move to Point 3: (Y - 0.2)
+    geometry_msgs::msg::Pose point4_XY2 = point3_XY2;
+    point4_XY2.position.y -= 0.2;
+    waypoints_set10.push_back(point4_XY2);
+
+    // Move to Point 4: (X - 0.2) - Back to previous X
+    geometry_msgs::msg::Pose point5_XY2 = point4_XY2;
+    point5_XY2.position.x -= 0.2;
+    waypoints_set10.push_back(point5_XY2);
+
+    // Robot naturally returns to where Set 7 ended
+
+    trajectory_sets.push_back(waypoints_set10);
+
+
+    // ###############  PLANE YZ (Continued) ###############
+
+    // Set 11: Plane YZ move (0.2m steps)
+    std::vector<geometry_msgs::msg::Pose> waypoints_set11;
+
+    // Start from where Set 8 (10 cm movement) ended
+    geometry_msgs::msg::Pose point1_YZ2 = waypoints_set8.back();
+    waypoints_set11.push_back(point1_YZ2);
+
+    // Move to Point 1: (Z + 0.2)
+    geometry_msgs::msg::Pose point2_YZ2 = point1_YZ2;
+    point2_YZ2.position.z += 0.2;
+    waypoints_set11.push_back(point2_YZ2);
+
+    // Move to Point 2: (Y + 0.2)
+    geometry_msgs::msg::Pose point3_YZ2 = point2_YZ2;
+    point3_YZ2.position.y += 0.2;
+    waypoints_set11.push_back(point3_YZ2);
+
+    // Move to Point 3: (Z - 0.2)
+    geometry_msgs::msg::Pose point4_YZ2 = point3_YZ2;
+    point4_YZ2.position.z -= 0.2;
+    waypoints_set11.push_back(point4_YZ2);
+
+    // Move to Point 4: (Y - 0.2) - Back to previous Y
+    geometry_msgs::msg::Pose point5_YZ2 = point4_YZ2;
+    point5_YZ2.position.y -= 0.2;
+    waypoints_set11.push_back(point5_YZ2);
+
+    // Robot naturally returns to where Set 8 ended
+
+    trajectory_sets.push_back(waypoints_set11);
+
+
+    // ###############  PLANE XZ (Continued) ###############
+
+    // Set 12: Plane XZ move (0.2m steps)
+    std::vector<geometry_msgs::msg::Pose> waypoints_set12;
+
+    // Start from where Set 9 (10 cm movement) ended
+    geometry_msgs::msg::Pose point1_XZ2 = waypoints_set9.back();
+    waypoints_set12.push_back(point1_XZ2);
+
+    // Move to Point 1: (Z + 0.2)
+    geometry_msgs::msg::Pose point2_XZ2 = point1_XZ2;
+    point2_XZ2.position.z += 0.2;
+    waypoints_set12.push_back(point2_XZ2);
+
+    // Move to Point 2: (X + 0.2)
+    geometry_msgs::msg::Pose point3_XZ2 = point2_XZ2;
+    point3_XZ2.position.x += 0.2;
+    waypoints_set12.push_back(point3_XZ2);
+
+    // Move to Point 3: (Z - 0.2)
+    geometry_msgs::msg::Pose point4_XZ2 = point3_XZ2;
+    point4_XZ2.position.z -= 0.2;
+    waypoints_set12.push_back(point4_XZ2);
+
+    // Move to Point 4: (X - 0.2) - Back to previous X
+    geometry_msgs::msg::Pose point5_XZ2 = point4_XZ2;
+    point5_XZ2.position.x -= 0.2;
+    waypoints_set12.push_back(point5_XZ2);
+
+    // Robot naturally returns to where Set 9 ended
+
+    trajectory_sets.push_back(waypoints_set12);
 
 
 
 
-    // --- Execute all sets sequentially with pauses ---
+    // Store average speeds for each trajectory set
+    std::vector<double> avg_speeds;
+
     for (size_t i = 0; i < trajectory_sets.size(); ++i)
     {
         RCLCPP_INFO(logger, "Executing trajectory set %zu", i + 1);
-        execute_waypoints(move_group_interface, moveit_visual_tools, trajectory_sets[i], logger);
+        double avg_speed = execute_waypoints(move_group_interface, moveit_visual_tools, trajectory_sets[i], logger);
+        avg_speeds.push_back(avg_speed);
 
         if (i < trajectory_sets.size() - 1) // No need to wait after the last set
         {
             RCLCPP_INFO(logger, "Waiting 5 seconds before executing the next trajectory set...");
-            std::this_thread::sleep_for(std::chrono::seconds(2));
+            std::this_thread::sleep_for(std::chrono::seconds(5));
         }
     }
+
+    // Print the final average speed results
+    for (size_t i = 0; i < avg_speeds.size(); ++i)
+    {
+        RCLCPP_INFO(logger, "Final average speed for trajectory set %zu: %.3f rad/s", i + 1, avg_speeds[i]);
+    }
+
 
     // Shut down ROS 2 cleanly when we're done
     spinner.join();
