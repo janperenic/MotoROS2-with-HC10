@@ -7,6 +7,9 @@ ros2 launch hc10dt_moveit_config demo.launch.py
 
 
 ros2 launch hc20_moveit_config demo.launch.py
+
+
+ros2 launch hc20_sim_moveit_config demo.launch.py
 # V demo.launch.py mors spremenit package name ko gres iz simulacije na robota in obratno
 
 # za robota

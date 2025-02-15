@@ -4,6 +4,16 @@
 #include <moveit/move_group_interface/move_group_interface.h>
 #include <moveit_visual_tools/moveit_visual_tools.h>
 
+void printWaypoint(const geometry_msgs::msg::Pose& pose, size_t index, const rclcpp::Logger& logger)
+{
+    RCLCPP_INFO(logger, "Waypoint %zu:", index + 1);
+    RCLCPP_INFO(logger, "  Position -> x: %.3f, y: %.3f, z: %.3f", 
+                pose.position.x, pose.position.y, pose.position.z);
+    RCLCPP_INFO(logger, "  Orientation -> x: %.3f, y: %.3f, z: %.3f, w: %.3f",
+                pose.orientation.x, pose.orientation.y, 
+                pose.orientation.z, pose.orientation.w);
+}
+
 int main(int argc, char* argv[])
 {
   // Initialize ROS and create the Node
@@ -48,9 +58,9 @@ int main(int argc, char* argv[])
 
   // Initial point (bottom-left corner of the square)
   geometry_msgs::msg::Pose point1;
-  point1.position.x = 0.5;
-  point1.position.y = 0.1;
-  point1.position.z = 1.25;
+  point1.position.x = 1.08;
+  point1.position.y = 0.0;
+  point1.position.z = 1.0;
   point1.orientation.x = 0.0;
   point1.orientation.y = 0.0;
   point1.orientation.z = 0.0;
@@ -61,57 +71,59 @@ int main(int argc, char* argv[])
 
     // !!!!!!!!!!!!!!  X  !!!!!!!!!!!!!!
 
-  // Other waypoints to form a square
   geometry_msgs::msg::Pose point2 = point1;
-  point2.position.x += 0.2;
+  point2.position.x += 0.1;
   waypoints.push_back(point2);
 
   geometry_msgs::msg::Pose point3 = point2;
-  point3.position.y += 0.2;
+  point3.position.x -= 0.1;
   waypoints.push_back(point3);
 
   geometry_msgs::msg::Pose point4 = point3;
-  point4.position.x -= 0.2;
+  point4.position.x -= 0.1;
   waypoints.push_back(point4);
 
   // Return to the starting point
-  waypoints.push_back(point1);
-
-    // !!!!!!!!!!!!!!  X  !!!!!!!!!!!!!!
-
-  // geometry_msgs::msg::Pose point2 = point1;
-  // point2.position.x += 0.1;
-  // waypoints.push_back(point2);
-
-  // geometry_msgs::msg::Pose point3 = point2;
-  // point3.position.x -= 0.1;
-  // waypoints.push_back(point3);
-
-  // geometry_msgs::msg::Pose point4 = point3;
-  // point4.position.x -= 0.1;
-  // waypoints.push_back(point4);
-
-  // // Return to the starting point
-  // waypoints.push_back(point1);
+  geometry_msgs::msg::Pose point5 = point4;
+  point5.position.x += 0.1;
+  waypoints.push_back(point5);
 
     // !!!!!!!!!!!!!!  Y  !!!!!!!!!!!!!!
 
-  // geometry_msgs::msg::Pose point2 = point1;
-  // point2.position.y += 0.1;
-  // waypoints.push_back(point2);
+  geometry_msgs::msg::Pose point6 = point5;
+  point6.position.y += 0.1;
+  waypoints.push_back(point6);
 
-  // geometry_msgs::msg::Pose point3 = point2;
-  // point3.position.y -= 0.1;
-  // waypoints.push_back(point3);
+  geometry_msgs::msg::Pose point7 = point6;
+  point7.position.y -= 0.1;
+  waypoints.push_back(point7);
 
-  // geometry_msgs::msg::Pose point4 = point3;
-  // point4.position.y -= 0.1;
-  // waypoints.push_back(point4);
+  geometry_msgs::msg::Pose point8 = point7;
+  point8.position.y -= 0.1;
+  waypoints.push_back(point8);
 
-  // // Return to the starting point
-  // waypoints.push_back(point1);
+  geometry_msgs::msg::Pose point9 = point8;
+  point9.position.y += 0.1;
+  waypoints.push_back(point9);
 
     // !!!!!!!!!!!!!!  Z  !!!!!!!!!!!!!!
+
+
+  geometry_msgs::msg::Pose point10 = point9;
+  point10.position.z += 0.1;
+  waypoints.push_back(point10);
+
+  geometry_msgs::msg::Pose point11 = point10;
+  point11.position.z -= 0.1;
+  waypoints.push_back(point11);
+
+  geometry_msgs::msg::Pose point12 = point11;
+  point12.position.z -= 0.1;
+  waypoints.push_back(point12);
+
+  geometry_msgs::msg::Pose point13 = point12;
+  point13.position.z += 0.1;
+  waypoints.push_back(point13);
 
   // geometry_msgs::msg::Pose point2 = point1;
   // point2.position.z += 0.1;
@@ -129,288 +141,14 @@ int main(int argc, char* argv[])
   // waypoints.push_back(point1);
 
 
-  // ##################  LIN 20  ######################
 
-    // !!!!!!!!!!!!!!  X  !!!!!!!!!!!!!!
 
-  // geometry_msgs::msg::Pose point2 = point1;
-  // point2.position.x += 0.2;
-  // waypoints.push_back(point2);
 
-  // geometry_msgs::msg::Pose point3 = point2;
-  // point3.position.x -= 0.2;
-  // waypoints.push_back(point3);
 
-  // geometry_msgs::msg::Pose point4 = point3;
-  // point4.position.x -= 0.2;
-  // waypoints.push_back(point4);
-
-  // // Return to the starting point
-  // waypoints.push_back(point1);
-
-
-    // !!!!!!!!!!!!!!  Y  !!!!!!!!!!!!!!
-
-  // geometry_msgs::msg::Pose point2 = point1;
-  // point2.position.y += 0.2;
-  // waypoints.push_back(point2);
-
-  // geometry_msgs::msg::Pose point3 = point2;
-  // point3.position.y -= 0.2;
-  // waypoints.push_back(point3);
-
-  // geometry_msgs::msg::Pose point4 = point3;
-  // point4.position.y -= 0.2;
-  // waypoints.push_back(point4);
-
-  // // Return to the starting point
-  // waypoints.push_back(point1);
-
-    // !!!!!!!!!!!!!!  Z  !!!!!!!!!!!!!!
-
-  // geometry_msgs::msg::Pose point2 = point1;
-  // point2.position.z += 0.2;
-  // waypoints.push_back(point2);
-
-  // geometry_msgs::msg::Pose point3 = point2;
-  // point3.position.z -= 0.2;
-  // waypoints.push_back(point3);
-
-  // geometry_msgs::msg::Pose point4 = point3;
-  // point4.position.z -= 0.2;
-  // waypoints.push_back(point4);
-
-  // // Return to the starting point
-  // waypoints.push_back(point1);
-
-
-
-  // ##################  LIN 40  ######################
-
-    // !!!!!!!!!!!!!!  X  !!!!!!!!!!!!!!
-
-
-  // geometry_msgs::msg::Pose point2 = point1;
-  // point2.position.x += 0.4;
-  // waypoints.push_back(point2);
-
-  // geometry_msgs::msg::Pose point3 = point2;
-  // point3.position.x -= 0.4;
-  // waypoints.push_back(point3);
-
-  // geometry_msgs::msg::Pose point4 = point3;
-  // point4.position.x -= 0.4;
-  // waypoints.push_back(point4);
-
-  // // Return to the starting point
-  // waypoints.push_back(point1);
-
-
-    // !!!!!!!!!!!!!!  Y  !!!!!!!!!!!!!!
-
-
-  // geometry_msgs::msg::Pose point2 = point1;
-  // point2.position.y += 0.4;
-  // waypoints.push_back(point2);
-
-  // geometry_msgs::msg::Pose point3 = point2;
-  // point3.position.y -= 0.4;
-  // waypoints.push_back(point3);
-
-  // geometry_msgs::msg::Pose point4 = point3;
-  // point4.position.y -= 0.4;
-  // waypoints.push_back(point4);
-
-  // // Return to the starting point
-  // waypoints.push_back(point1);
-
-    // !!!!!!!!!!!!!!  Z  !!!!!!!!!!!!!!
-
-  // geometry_msgs::msg::Pose point2 = point1;
-  // point2.position.z += 0.4;
-  // waypoints.push_back(point2);
-
-  // geometry_msgs::msg::Pose point3 = point2;
-  // point3.position.z -= 0.4;
-  // waypoints.push_back(point3);
-
-  // geometry_msgs::msg::Pose point4 = point3;
-  // point4.position.z -= 0.4;
-  // waypoints.push_back(point4);
-
-  // // Return to the starting point
-  // waypoints.push_back(point1);
-
-
-
-  // ##################  PLAIN 10  ######################
-
-    // !!!!!!!!!!!!!!  XY  !!!!!!!!!!!!!!
-  // geometry_msgs::msg::Pose point2 = point1;
-  // point2.position.x += 0.1;
-  // waypoints.push_back(point2);
-
-  // geometry_msgs::msg::Pose point3 = point2;
-  // point3.position.y += 0.1;
-  // waypoints.push_back(point3);
-
-  // geometry_msgs::msg::Pose point4 = point3;
-  // point4.position.x -= 0.1;
-  // waypoints.push_back(point4);
-
-  // // Return to the starting point
-  // waypoints.push_back(point1);
-
-    // !!!!!!!!!!!!!!  YZ  !!!!!!!!!!!!!!
-
-  // geometry_msgs::msg::Pose point2 = point1;
-  // point2.position.y += 0.1;
-  // waypoints.push_back(point2);
-
-  // geometry_msgs::msg::Pose point3 = point2;
-  // point3.position.z += 0.1;
-  // waypoints.push_back(point3);
-
-  // geometry_msgs::msg::Pose point4 = point3;
-  // point4.position.y -= 0.1;
-  // waypoints.push_back(point4);
-
-  // // Return to the starting point
-  // waypoints.push_back(point1);
-
-    // !!!!!!!!!!!!!!  XZ  !!!!!!!!!!!!!!
-
-  // geometry_msgs::msg::Pose point2 = point1;
-  // point2.position.x += 0.1;
-  // waypoints.push_back(point2);
-
-  // geometry_msgs::msg::Pose point3 = point2;
-  // point3.position.z += 0.1;
-  // waypoints.push_back(point3);
-
-  // geometry_msgs::msg::Pose point4 = point3;
-  // point4.position.x -= 0.1;
-  // waypoints.push_back(point4);
-
-  // // Return to the starting point
-  // waypoints.push_back(point1);
-
-
-
-
-  // ##################  PLAIN 20  ######################
-
-    // !!!!!!!!!!!!!!  XY  !!!!!!!!!!!!!!
-
-  // geometry_msgs::msg::Pose point2 = point1;
-  // point2.position.x += 0.2;
-  // waypoints.push_back(point2);
-
-  // geometry_msgs::msg::Pose point3 = point2;
-  // point3.position.y += 0.2;
-  // waypoints.push_back(point3);
-
-  // geometry_msgs::msg::Pose point4 = point3;
-  // point4.position.x -= 0.2;
-  // waypoints.push_back(point4);
-
-  // // Return to the starting point
-  // waypoints.push_back(point1);
-
-    // !!!!!!!!!!!!!!  YZ  !!!!!!!!!!!!!!
-
-  // geometry_msgs::msg::Pose point2 = point1;
-  // point2.position.y += 0.2;
-  // waypoints.push_back(point2);
-
-  // geometry_msgs::msg::Pose point3 = point2;
-  // point3.position.z += 0.2;
-  // waypoints.push_back(point3);
-
-  // geometry_msgs::msg::Pose point4 = point3;
-  // point4.position.y -= 0.2;
-  // waypoints.push_back(point4);
-
-  // // Return to the starting point
-  // waypoints.push_back(point1);    
-
-    // !!!!!!!!!!!!!!  XZ  !!!!!!!!!!!!!!
-
-  // geometry_msgs::msg::Pose point2 = point1;
-  // point2.position.x += 0.2;
-  // waypoints.push_back(point2);
-
-  // geometry_msgs::msg::Pose point3 = point2;
-  // point3.position.z += 0.2;
-  // waypoints.push_back(point3);
-
-  // geometry_msgs::msg::Pose point4 = point3;
-  // point4.position.x -= 0.2;
-  // waypoints.push_back(point4);
-
-  // // Return to the starting point
-  // waypoints.push_back(point1);
-
-
-
-  // ##################  PLAIN 40  ######################
-
-    // !!!!!!!!!!!!!!  XY  !!!!!!!!!!!!!!
-  // geometry_msgs::msg::Pose point2 = point1;
-  // point2.position.x += 0.4;
-  // waypoints.push_back(point2);
-
-  // geometry_msgs::msg::Pose point3 = point2;
-  // point3.position.y += 0.4;
-  // waypoints.push_back(point3);
-
-  // geometry_msgs::msg::Pose point4 = point3;
-  // point4.position.x -= 0.4;
-  // waypoints.push_back(point4);
-
-  // // Return to the starting point
-  // waypoints.push_back(point1);
-
-    // !!!!!!!!!!!!!!  YZ  !!!!!!!!!!!!!!
-
-  // geometry_msgs::msg::Pose point2 = point1;
-  // point2.position.y += 0.4;
-  // waypoints.push_back(point2);
-
-  // geometry_msgs::msg::Pose point3 = point2;
-  // point3.position.z += 0.4;
-  // waypoints.push_back(point3);
-
-  // geometry_msgs::msg::Pose point4 = point3;
-  // point4.position.y -= 0.4;
-  // waypoints.push_back(point4);
-
-  // // Return to the starting point
-  // waypoints.push_back(point1);
-
-    // !!!!!!!!!!!!!!  XZ  !!!!!!!!!!!!!!
-
-  // geometry_msgs::msg::Pose point2 = point1;
-  // point2.position.x += 0.4;
-  // waypoints.push_back(point2);
-
-  // geometry_msgs::msg::Pose point3 = point2;
-  // point3.position.z += 0.4;
-  // waypoints.push_back(point3);
-
-  // geometry_msgs::msg::Pose point4 = point3;
-  // point4.position.x -= 0.4;
-  // waypoints.push_back(point4);
-
-  // // Return to the starting point
-  // waypoints.push_back(point1);
-
-
-
-
-  // Execute the waypoints
-  for (size_t i = 0; i < waypoints.size(); ++i)
-  {
+for (size_t i = 0; i < waypoints.size(); ++i)
+{
+    printWaypoint(waypoints[i], i, logger);  // ✅ Print the waypoint info
+    
     move_group_interface.setPoseTarget(waypoints[i]);
 
     moveit::planning_interface::MoveGroupInterface::Plan plan;
@@ -418,19 +156,21 @@ int main(int argc, char* argv[])
 
     if (ok == moveit::core::MoveItErrorCode::SUCCESS)
     {
-      RCLCPP_INFO(logger, "Executing move to waypoint %zu", i + 1);
-      move_group_interface.execute(plan);
+        RCLCPP_INFO(logger, "Executing move to waypoint %zu", i + 1);
+        move_group_interface.execute(plan);
 
-      // Draw the path in RViz after execution
-      moveit_visual_tools.publishTrajectoryLine(plan.trajectory_, move_group_interface.getRobotModel()->getJointModelGroup("manipulator"));
-      moveit_visual_tools.trigger();
+        moveit_visual_tools.publishTrajectoryLine(plan.trajectory_, move_group_interface.getRobotModel()->getJointModelGroup("manipulator"));
+        moveit_visual_tools.trigger();
+        RCLCPP_INFO(logger, "Waiting 5 seconds before executing the next trajectory set...");
+        std::this_thread::sleep_for(std::chrono::nanoseconds(500000000));
     }
     else
     {
-      RCLCPP_ERROR(logger, "Planning failed for waypoint %zu!", i + 1);
-      break;
+        RCLCPP_ERROR(logger, "Planning failed for waypoint %zu!", i + 1);
+        break;
     }
-  }
+}
+
 
   // Shut down ROS 2 cleanly when we're done
   spinner.join();
