@@ -5,6 +5,36 @@
 #include <rclcpp/rclcpp.hpp>
 #include <moveit/move_group_interface/move_group_interface.h>
 #include <moveit_visual_tools/moveit_visual_tools.h>
+#include <geometry_msgs/msg/pose_stamped.hpp>  // Include for pose message
+#include <fstream>  // For CSV output
+#include <chrono>   // For timing
+#include <atomic>  // For thread-safe flag
+
+
+std::atomic<bool> logging_active(true);
+
+void log_tool0_position(rclcpp::Node::SharedPtr node, moveit::planning_interface::MoveGroupInterface& move_group_interface)
+{
+    std::ofstream csv_file("tool0_positions.csv");
+    csv_file << "time;x;y;z\n";
+
+    while (logging_active) {
+        auto current_pose = move_group_interface.getCurrentPose("tool0");
+        auto now = node->get_clock()->now();
+        csv_file << now.seconds() << ";"
+                 << current_pose.pose.position.x << ";"
+                 << current_pose.pose.position.y << ";"
+                 << current_pose.pose.position.z << "\n";
+        RCLCPP_INFO(node->get_logger(), "Tool0 Position: x=%.3f, y=%.3f, z=%.3f",
+                    current_pose.pose.position.x,
+                    current_pose.pose.position.y,
+                    current_pose.pose.position.z);
+        std::this_thread::sleep_for(std::chrono::milliseconds(5));  // 100 Hz
+    }
+
+    csv_file.close();
+}
+
 
 // Function to execute a set of waypoints and calculate average speed
 double execute_waypoints(
@@ -100,6 +130,10 @@ int main(int argc, char* argv[])
     move_group_interface.setMaxVelocityScalingFactor(0.5);
     move_group_interface.setMaxAccelerationScalingFactor(0.2);
 
+    // Start logging tool0 positions in a separate thread
+    std::thread logging_thread(log_tool0_position, node, std::ref(move_group_interface));
+
+
     // Construct and initialize MoveItVisualTools
     auto moveit_visual_tools = moveit_visual_tools::MoveItVisualTools{node, "base_link", rviz_visual_tools::RVIZ_MARKER_TOPIC};
     moveit_visual_tools.deleteAllMarkers();
@@ -108,9 +142,14 @@ int main(int argc, char* argv[])
     RCLCPP_INFO(logger, "Planning pipeline: %s", move_group_interface.getPlanningPipelineId().c_str());
     RCLCPP_INFO(logger, "Planner ID: %s", move_group_interface.getPlannerId().c_str());
     RCLCPP_INFO(logger, "Planning time: %.2f", move_group_interface.getPlanningTime());
+   
+    auto current_pose = move_group_interface.getCurrentPose("tool0");  // Get current pose of tool0
+    RCLCPP_INFO(logger, "Tool0 Position: x=%.3f, y=%.3f, z=%.3f",current_pose.pose.position.x,current_pose.pose.position.y,current_pose.pose.position.z);
 
-        // Wait for the current robot state to be available
-        rclcpp::sleep_for(std::chrono::seconds(2));
+
+
+    // Wait for the current robot state to be available
+    rclcpp::sleep_for(std::chrono::seconds(2));
     // Define a base pose to use as a reference for all movements
     geometry_msgs::msg::Pose base_pose;
     base_pose.position.x = 1.08;
@@ -429,7 +468,9 @@ int main(int argc, char* argv[])
         {
             RCLCPP_INFO(logger, "Waiting 5 seconds before executing the next trajectory set...");
             std::this_thread::sleep_for(std::chrono::nanoseconds(500000000));
+
         }
+        
     }
 
     // Print the final average speed results
@@ -438,6 +479,8 @@ int main(int argc, char* argv[])
         RCLCPP_INFO(logger, "Final average speed for trajectory set %zu: %.3f rad/s", i + 1, avg_speeds[i]);
     }
 
+    logging_active = false;  // Stop logging when movements are done
+    logging_thread.join();   // Wait for logging to finish
 
     // Shut down ROS 2 cleanly when we're done
     spinner.join();
