@@ -9,31 +9,54 @@
 #include <fstream>  // For CSV output
 #include <chrono>   // For timing
 #include <atomic>  // For thread-safe flag
+#include <cmath> // Include for rounding
+#include <iomanip> // Include for std::fixed and std::setprecision
 
 
 std::atomic<bool> logging_active(true);
 
+double round_to_decimal(double value, int decimal_places) {
+    double factor = std::pow(6, decimal_places);
+    return std::round(value * factor) / factor;
+}
+
 void log_tool0_position(rclcpp::Node::SharedPtr node, moveit::planning_interface::MoveGroupInterface& move_group_interface)
 {
-    std::ofstream csv_file("tool0_positions.csv");
-    csv_file << "time;x;y;z\n";
+    std::ofstream csv_file("MotoROS_SIM_PTP_0.75.csv");
+    csv_file << "//MOTOROS_SIM_PTP_0.75;;;;;;;\n";
+    csv_file << "Name;X;Y;Z;Rx;Ry;Rz;time;step\n";
+    // csv_file << "time;X;Y;Z\n";
+    csv_file << std::fixed << std::setprecision(4) << std::showpoint;
+    // csv_file << std::fixed << std::setprecision(4); // Set fixed-point notation and precision for all values
+
+    double time_step = 0.005; // Initialize time step
+    double name = 1;
 
     while (logging_active) {
         auto current_pose = move_group_interface.getCurrentPose("tool0");
         auto now = node->get_clock()->now();
-        csv_file << now.seconds() << ";"
-                 << current_pose.pose.position.x << ";"
-                 << current_pose.pose.position.y << ";"
-                 << current_pose.pose.position.z << "\n";
-        RCLCPP_INFO(node->get_logger(), "Tool0 Position: x=%.3f, y=%.3f, z=%.3f",
-                    current_pose.pose.position.x,
-                    current_pose.pose.position.y,
-                    current_pose.pose.position.z);
-        std::this_thread::sleep_for(std::chrono::milliseconds(5));  // 100 Hz
+        csv_file << name << ";"
+                 << round_to_decimal(current_pose.pose.position.x*1000, 6) << ";"
+                 << round_to_decimal(current_pose.pose.position.y*1000, 6) << ";"
+                 << round_to_decimal(current_pose.pose.position.z*1000, 6) << ";"
+                 << ";;;"  // Placeholder for Rx, Ry, Rz (if needed)
+                 << now.seconds() << ";"
+                 << time_step << "\n";
+
+        // RCLCPP_INFO(node->get_logger(), "Tool0 Position: x=%.4f, y=%.4f, z=%.4f",
+        //             round_to_decimal(current_pose.pose.position.x*1000, 6),
+        //             round_to_decimal(current_pose.pose.position.y*1000, 6),
+        //             round_to_decimal(current_pose.pose.position.z*1000, 6));
+        
+        time_step += 0.005;
+        name += 1;
+        
+        std::this_thread::sleep_for(std::chrono::milliseconds(5));  // 200 Hz
     }
 
     csv_file.close();
 }
+
 
 
 // Function to execute a set of waypoints and calculate average speed
@@ -45,6 +68,7 @@ double execute_waypoints(
 {
     double total_speed = 0.0;
     size_t speed_count = 0; // Number of velocity data points
+    double max_speed = 0.0;
 
     for (size_t i = 0; i < waypoints.size(); ++i)
     {
@@ -73,6 +97,11 @@ double execute_waypoints(
                     }
                     speed = std::sqrt(speed); // Convert to scalar speed
 
+                    // Update maximum speed
+                    if (speed > max_speed)
+                    {
+                        max_speed = speed;
+                    }
                     total_speed += speed;
                     speed_count++;
 
@@ -98,7 +127,8 @@ double execute_waypoints(
     // Calculate and return the average speed for this trajectory
     double avg_speed = (speed_count > 0) ? (total_speed / speed_count) : 0.0;
     RCLCPP_INFO(logger, "Average speed for this trajectory: %.3f rad/s", avg_speed);
-
+    RCLCPP_INFO(logger, "Maximum speed during the operation: %.3f rad/s", max_speed);
+    
     return avg_speed;
 }
 
@@ -125,10 +155,17 @@ int main(int argc, char* argv[])
 
     // Set the planning pipeline to Pilz
     move_group_interface.setPlanningPipelineId("pilz_industrial_motion_planner");
-    move_group_interface.setPlannerId("LIN"); // Set to 'PTP' for point-to-point movement
+    move_group_interface.setPlannerId("PTP"); // Set to 'PTP' for point-to-point movement
     move_group_interface.setPlanningTime(3.0);
-    move_group_interface.setMaxVelocityScalingFactor(0.5);
-    move_group_interface.setMaxAccelerationScalingFactor(0.2);
+    move_group_interface.setMaxVelocityScalingFactor(0.0375); 
+    move_group_interface.setMaxAccelerationScalingFactor(1.0);
+
+
+    //0.1 je 200mm/s( pri pospesku 0.2),
+    //0.05 je 100mm/s in je isto kot pri motoplusu ( pospesk 1.0)
+        //0.05, 0.0375, 0.025, 0.0125
+    //0.2 je 400 (pri 1.0 pospesku)
+
 
     // Start logging tool0 positions in a separate thread
     std::thread logging_thread(log_tool0_position, node, std::ref(move_group_interface));
@@ -144,7 +181,7 @@ int main(int argc, char* argv[])
     RCLCPP_INFO(logger, "Planning time: %.2f", move_group_interface.getPlanningTime());
    
     auto current_pose = move_group_interface.getCurrentPose("tool0");  // Get current pose of tool0
-    RCLCPP_INFO(logger, "Tool0 Position: x=%.3f, y=%.3f, z=%.3f",current_pose.pose.position.x,current_pose.pose.position.y,current_pose.pose.position.z);
+    // RCLCPP_INFO(logger, "Tool0 Position: x=%.3f, y=%.3f, z=%.3f",current_pose.pose.position.x,current_pose.pose.position.y,current_pose.pose.position.z);
 
 
 
@@ -152,9 +189,9 @@ int main(int argc, char* argv[])
     rclcpp::sleep_for(std::chrono::seconds(2));
     // Define a base pose to use as a reference for all movements
     geometry_msgs::msg::Pose base_pose;
-    base_pose.position.x = 1.08;
+    base_pose.position.x = 1.175; // pri meritvah mormo mi dt 1080 ker 95 je se od T maca
     base_pose.position.y = 0.0;
-    base_pose.position.z = 1.0;
+    base_pose.position.z = 0.24; // spremeni une baze da use stima!
     base_pose.orientation.x = 0.0;
     base_pose.orientation.y = 0.0;
     base_pose.orientation.z = 0.0;
@@ -335,19 +372,19 @@ int main(int argc, char* argv[])
     std::vector<geometry_msgs::msg::Pose> waypoints_set8;
 
     geometry_msgs::msg::Pose point2_YZ1 = point5_XY1;
-    point2_YZ1.position.z += 0.1;
+    point2_YZ1.position.y += 0.1;
     waypoints_set8.push_back(point2_YZ1);
 
     geometry_msgs::msg::Pose point3_YZ1 = point2_YZ1;
-    point3_YZ1.position.y += 0.1;
+    point3_YZ1.position.z += 0.1;
     waypoints_set8.push_back(point3_YZ1);
 
     geometry_msgs::msg::Pose point4_YZ1 = point3_YZ1;
-    point4_YZ1.position.z -= 0.1;
+    point4_YZ1.position.y -= 0.1;
     waypoints_set8.push_back(point4_YZ1);
 
     geometry_msgs::msg::Pose point5_YZ1 = point4_YZ1;
-    point5_YZ1.position.y -= 0.1;
+    point5_YZ1.position.z -= 0.1;
     waypoints_set8.push_back(point5_YZ1);
 
     trajectory_sets.push_back(waypoints_set8);
@@ -359,19 +396,19 @@ int main(int argc, char* argv[])
     std::vector<geometry_msgs::msg::Pose> waypoints_set9;
 
     geometry_msgs::msg::Pose point2_XZ1 = point5_YZ1;
-    point2_XZ1.position.z += 0.1;
+    point2_XZ1.position.x += 0.1;
     waypoints_set9.push_back(point2_XZ1);
 
     geometry_msgs::msg::Pose point3_XZ1 = point2_XZ1;
-    point3_XZ1.position.x += 0.1;
+    point3_XZ1.position.z += 0.1;
     waypoints_set9.push_back(point3_XZ1);
 
     geometry_msgs::msg::Pose point4_XZ1 = point3_XZ1;
-    point4_XZ1.position.z -= 0.1;
+    point4_XZ1.position.x -= 0.1;
     waypoints_set9.push_back(point4_XZ1);
 
     geometry_msgs::msg::Pose point5_XZ1 = point4_XZ1;
-    point5_XZ1.position.x -= 0.1;
+    point5_XZ1.position.z -= 0.1;
     waypoints_set9.push_back(point5_XZ1);
 
     trajectory_sets.push_back(waypoints_set9);
@@ -409,19 +446,19 @@ int main(int argc, char* argv[])
     std::vector<geometry_msgs::msg::Pose> waypoints_set11;
 
     geometry_msgs::msg::Pose point2_YZ2 = point5_XY2;
-    point2_YZ2.position.z += 0.2;
+    point2_YZ2.position.y += 0.2;
     waypoints_set11.push_back(point2_YZ2);
 
     geometry_msgs::msg::Pose point3_YZ2 = point2_YZ2;
-    point3_YZ2.position.y += 0.2;
+    point3_YZ2.position.z += 0.2;
     waypoints_set11.push_back(point3_YZ2);
 
     geometry_msgs::msg::Pose point4_YZ2 = point3_YZ2;
-    point4_YZ2.position.z -= 0.2;
+    point4_YZ2.position.y -= 0.2;
     waypoints_set11.push_back(point4_YZ2);
 
     geometry_msgs::msg::Pose point5_YZ2 = point4_YZ2;
-    point5_YZ2.position.y -= 0.2;
+    point5_YZ2.position.z -= 0.2;
     waypoints_set11.push_back(point5_YZ2);
 
     trajectory_sets.push_back(waypoints_set11);
@@ -433,19 +470,19 @@ int main(int argc, char* argv[])
     std::vector<geometry_msgs::msg::Pose> waypoints_set12;
 
     geometry_msgs::msg::Pose point2_XZ2 = point5_YZ2;
-    point2_XZ2.position.z += 0.2;
+    point2_XZ2.position.x += 0.2;
     waypoints_set12.push_back(point2_XZ2);
 
     geometry_msgs::msg::Pose point3_XZ2 = point2_XZ2;
-    point3_XZ2.position.x += 0.2;
+    point3_XZ2.position.z += 0.2;
     waypoints_set12.push_back(point3_XZ2);
 
     geometry_msgs::msg::Pose point4_XZ2 = point3_XZ2;
-    point4_XZ2.position.z -= 0.2;
+    point4_XZ2.position.x -= 0.2;
     waypoints_set12.push_back(point4_XZ2);
 
     geometry_msgs::msg::Pose point5_XZ2 = point4_XZ2;
-    point5_XZ2.position.x -= 0.2;
+    point5_XZ2.position.z -= 0.2;
     waypoints_set12.push_back(point5_XZ2);
 
     trajectory_sets.push_back(waypoints_set12);
@@ -467,7 +504,7 @@ int main(int argc, char* argv[])
         if (i < trajectory_sets.size() - 1) // No need to wait after the last set
         {
             RCLCPP_INFO(logger, "Waiting 5 seconds before executing the next trajectory set...");
-            std::this_thread::sleep_for(std::chrono::nanoseconds(500000000));
+            std::this_thread::sleep_for(std::chrono::nanoseconds(3000000000));
 
         }
         

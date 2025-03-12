@@ -181,3 +181,171 @@
 
 
 
+
+
+
+
+
+
+
+
+# ##############################################################
+# v simulaciji motoros2
+
+LIN 1.0
+[INFO] [1739732239.800223443] [hello_moveit]: Average speed for this trajectory: 0.214 rad/s
+[INFO] [1739732239.800260694] [hello_moveit]: Final average speed for trajectory set 1: 0.154 rad/s
+[INFO] [1739732239.800281684] [hello_moveit]: Final average speed for trajectory set 2: 0.229 rad/s
+[INFO] [1739732239.800299859] [hello_moveit]: Final average speed for trajectory set 3: 0.139 rad/s
+[INFO] [1739732239.800317893] [hello_moveit]: Final average speed for trajectory set 4: 0.234 rad/s
+[INFO] [1739732239.800336669] [hello_moveit]: Final average speed for trajectory set 5: 0.331 rad/s
+[INFO] [1739732239.800354884] [hello_moveit]: Final average speed for trajectory set 6: 0.204 rad/s
+[INFO] [1739732239.800373068] [hello_moveit]: Final average speed for trajectory set 7: 0.191 rad/s
+[INFO] [1739732239.800391293] [hello_moveit]: Final average speed for trajectory set 8: 0.195 rad/s
+[INFO] [1739732239.800409398] [hello_moveit]: Final average speed for trajectory set 9: 0.146 rad/s
+[INFO] [1739732239.800427843] [hello_moveit]: Final average speed for trajectory set 10: 0.278 rad/s
+[INFO] [1739732239.800445797] [hello_moveit]: Final average speed for trajectory set 11: 0.309 rad/s
+[INFO] [1739732239.800463731] [hello_moveit]: Final average speed for trajectory set 12: 0.214 rad/s
+
+
+
+LIN 0.5
+[INFO] [1739732406.299563933] [hello_moveit]: Average speed for this trajectory: 0.214 rad/s
+[INFO] [1739732406.299592377] [hello_moveit]: Final average speed for trajectory set 1: 0.154 rad/s
+[INFO] [1739732406.299607205] [hello_moveit]: Final average speed for trajectory set 2: 0.229 rad/s
+[INFO] [1739732406.299618296] [hello_moveit]: Final average speed for trajectory set 3: 0.139 rad/s
+[INFO] [1739732406.299629197] [hello_moveit]: Final average speed for trajectory set 4: 0.234 rad/s
+[INFO] [1739732406.299640158] [hello_moveit]: Final average speed for trajectory set 5: 0.331 rad/s
+[INFO] [1739732406.299650798] [hello_moveit]: Final average speed for trajectory set 6: 0.204 rad/s
+[INFO] [1739732406.299661308] [hello_moveit]: Final average speed for trajectory set 7: 0.191 rad/s
+[INFO] [1739732406.299671718] [hello_moveit]: Final average speed for trajectory set 8: 0.195 rad/s
+[INFO] [1739732406.299682238] [hello_moveit]: Final average speed for trajectory set 9: 0.146 rad/s
+[INFO] [1739732406.299692107] [hello_moveit]: Final average speed for trajectory set 10: 0.278 rad/s
+[INFO] [1739732406.299702567] [hello_moveit]: Final average speed for trajectory set 11: 0.309 rad/s
+[INFO] [1739732406.299713217] [hello_moveit]: Final average speed for trajectory set 12: 0.214 rad/s
+
+
+
+LIN 0.075
+[INFO] [1739732564.880392022] [hello_moveit]: Average speed for this trajectory: 0.107 rad/s
+[INFO] [1739732564.880416509] [hello_moveit]: Final average speed for trajectory set 1: 0.105 rad/s
+[INFO] [1739732564.880428351] [hello_moveit]: Final average speed for trajectory set 2: 0.154 rad/s
+[INFO] [1739732564.880437398] [hello_moveit]: Final average speed for trajectory set 3: 0.093 rad/s
+[INFO] [1739732564.880445875] [hello_moveit]: Final average speed for trajectory set 4: 0.117 rad/s
+[INFO] [1739732564.880454451] [hello_moveit]: Final average speed for trajectory set 5: 0.165 rad/s
+[INFO] [1739732564.880462927] [hello_moveit]: Final average speed for trajectory set 6: 0.102 rad/s
+[INFO] [1739732564.880471523] [hello_moveit]: Final average speed for trajectory set 7: 0.127 rad/s
+[INFO] [1739732564.880479899] [hello_moveit]: Final average speed for trajectory set 8: 0.130 rad/s
+[INFO] [1739732564.880488275] [hello_moveit]: Final average speed for trajectory set 9: 0.097 rad/s
+[INFO] [1739732564.880496621] [hello_moveit]: Final average speed for trajectory set 10: 0.139 rad/s
+[INFO] [1739732564.880504907] [hello_moveit]: Final average speed for trajectory set 11: 0.155 rad/s
+[INFO] [1739732564.880513453] [hello_moveit]: Final average speed for trajectory set 12: 0.107 rad/s
+
+
+
+LIN 0.05
+[INFO] [1739732784.520328557] [hello_moveit]: Average speed for this trajectory: 0.075 rad/s
+[INFO] [1739732784.520357452] [hello_moveit]: Final average speed for trajectory set 1: 0.075 rad/s
+[INFO] [1739732784.520371499] [hello_moveit]: Final average speed for trajectory set 2: 0.110 rad/s
+[INFO] [1739732784.520383111] [hello_moveit]: Final average speed for trajectory set 3: 0.067 rad/s
+[INFO] [1739732784.520394162] [hello_moveit]: Final average speed for trajectory set 4: 0.082 rad/s
+[INFO] [1739732784.520404752] [hello_moveit]: Final average speed for trajectory set 5: 0.115 rad/s
+[INFO] [1739732784.520415472] [hello_moveit]: Final average speed for trajectory set 6: 0.071 rad/s
+[INFO] [1739732784.520426002] [hello_moveit]: Final average speed for trajectory set 7: 0.092 rad/s
+[INFO] [1739732784.520436512] [hello_moveit]: Final average speed for trajectory set 8: 0.093 rad/s
+[INFO] [1739732784.520446781] [hello_moveit]: Final average speed for trajectory set 9: 0.070 rad/s
+[INFO] [1739732784.520457101] [hello_moveit]: Final average speed for trajectory set 10: 0.097 rad/s
+[INFO] [1739732784.520467921] [hello_moveit]: Final average speed for trajectory set 11: 0.108 rad/s
+[INFO] [1739732784.520478431] [hello_moveit]: Final average speed for trajectory set 12: 0.075 rad/s
+
+
+
+
+LIN 0.025
+[INFO] [1739733127.980054639] [hello_moveit]: Average speed for this trajectory: 0.039 rad/s
+[INFO] [1739733127.980079676] [hello_moveit]: Final average speed for trajectory set 1: 0.041 rad/s
+[INFO] [1739733127.980099334] [hello_moveit]: Final average speed for trajectory set 2: 0.060 rad/s
+[INFO] [1739733127.980117187] [hello_moveit]: Final average speed for trajectory set 3: 0.036 rad/s
+[INFO] [1739733127.980128198] [hello_moveit]: Final average speed for trajectory set 4: 0.043 rad/s
+[INFO] [1739733127.980136985] [hello_moveit]: Final average speed for trajectory set 5: 0.060 rad/s
+[INFO] [1739733127.980146092] [hello_moveit]: Final average speed for trajectory set 6: 0.037 rad/s
+[INFO] [1739733127.980167422] [hello_moveit]: Final average speed for trajectory set 7: 0.050 rad/s
+[INFO] [1739733127.980177852] [hello_moveit]: Final average speed for trajectory set 8: 0.051 rad/s
+[INFO] [1739733127.980215924] [hello_moveit]: Final average speed for trajectory set 9: 0.038 rad/s
+[INFO] [1739733127.980226824] [hello_moveit]: Final average speed for trajectory set 10: 0.051 rad/s
+[INFO] [1739733127.980235761] [hello_moveit]: Final average speed for trajectory set 11: 0.056 rad/s
+[INFO] [1739733127.980244317] [hello_moveit]: Final average speed for trajectory set 12: 0.039 rad/s
+
+
+
+
+
+
+
+PTP 0.5
+
+[INFO] [1739733748.669629913] [hello_moveit]: Average speed for this trajectory: 0.374 rad/s
+[INFO] [1739733748.669657091] [hello_moveit]: Final average speed for trajectory set 1: 0.234 rad/s
+[INFO] [1739733748.669670535] [hello_moveit]: Final average speed for trajectory set 2: 0.361 rad/s
+[INFO] [1739733748.669684210] [hello_moveit]: Final average speed for trajectory set 3: 0.246 rad/s
+[INFO] [1739733748.669699807] [hello_moveit]: Final average speed for trajectory set 4: 0.386 rad/s
+[INFO] [1739733748.669709986] [hello_moveit]: Final average speed for trajectory set 5: 0.495 rad/s
+[INFO] [1739733748.669719502] [hello_moveit]: Final average speed for trajectory set 6: 0.375 rad/s
+[INFO] [1739733748.669730332] [hello_moveit]: Final average speed for trajectory set 7: 0.298 rad/s
+[INFO] [1739733748.669741211] [hello_moveit]: Final average speed for trajectory set 8: 0.314 rad/s
+[INFO] [1739733748.669751780] [hello_moveit]: Final average speed for trajectory set 9: 0.241 rad/s
+[INFO] [1739733748.669765124] [hello_moveit]: Final average speed for trajectory set 10: 0.451 rad/s
+[INFO] [1739733748.669775793] [hello_moveit]: Final average speed for trajectory set 11: 0.498 rad/s
+[INFO] [1739733748.669786111] [hello_moveit]: Final average speed for trajectory set 12: 0.374 rad/s
+
+
+PTP 0.075
+[INFO] [1739733658.339581278] [hello_moveit]: Average speed for this trajectory: 0.182 rad/s
+[INFO] [1739733658.339609331] [hello_moveit]: Final average speed for trajectory set 1: 0.168 rad/s
+[INFO] [1739733658.339623357] [hello_moveit]: Final average speed for trajectory set 2: 0.193 rad/s
+[INFO] [1739733658.339635089] [hello_moveit]: Final average speed for trajectory set 3: 0.158 rad/s
+[INFO] [1739733658.339646150] [hello_moveit]: Final average speed for trajectory set 4: 0.194 rad/s
+[INFO] [1739733658.339656770] [hello_moveit]: Final average speed for trajectory set 5: 0.215 rad/s
+[INFO] [1739733658.339667210] [hello_moveit]: Final average speed for trajectory set 6: 0.184 rad/s
+[INFO] [1739733658.339677900] [hello_moveit]: Final average speed for trajectory set 7: 0.186 rad/s
+[INFO] [1739733658.339688269] [hello_moveit]: Final average speed for trajectory set 8: 0.181 rad/s
+[INFO] [1739733658.339698509] [hello_moveit]: Final average speed for trajectory set 9: 0.163 rad/s
+[INFO] [1739733658.339709359] [hello_moveit]: Final average speed for trajectory set 10: 0.203 rad/s
+[INFO] [1739733658.339720230] [hello_moveit]: Final average speed for trajectory set 11: 0.215 rad/s
+[INFO] [1739733658.339731050] [hello_moveit]: Final average speed for trajectory set 12: 0.182 rad/s
+
+
+PTP 0.05
+
+[INFO] [1739733533.509576088] [hello_moveit]: Average speed for this trajectory: 0.129 rad/s
+[INFO] [1739733533.509592289] [hello_moveit]: Final average speed for trajectory set 1: 0.119 rad/s
+[INFO] [1739733533.509600775] [hello_moveit]: Final average speed for trajectory set 2: 0.139 rad/s
+[INFO] [1739733533.509607497] [hello_moveit]: Final average speed for trajectory set 3: 0.115 rad/s
+[INFO] [1739733533.509614561] [hello_moveit]: Final average speed for trajectory set 4: 0.134 rad/s
+[INFO] [1739733533.509620963] [hello_moveit]: Final average speed for trajectory set 5: 0.149 rad/s
+[INFO] [1739733533.509627104] [hello_moveit]: Final average speed for trajectory set 6: 0.131 rad/s
+[INFO] [1739733533.509633286] [hello_moveit]: Final average speed for trajectory set 7: 0.132 rad/s
+[INFO] [1739733533.509639478] [hello_moveit]: Final average speed for trajectory set 8: 0.130 rad/s
+[INFO] [1739733533.509645730] [hello_moveit]: Final average speed for trajectory set 9: 0.120 rad/s
+[INFO] [1739733533.509651701] [hello_moveit]: Final average speed for trajectory set 10: 0.142 rad/s
+[INFO] [1739733533.509657882] [hello_moveit]: Final average speed for trajectory set 11: 0.150 rad/s
+[INFO] [1739733533.509664014] [hello_moveit]: Final average speed for trajectory set 12: 0.129 rad/s
+
+
+
+
+PTP 0.025
+
+[INFO] [1739733390.490820904] [hello_moveit]: Average speed for this trajectory: 0.068 rad/s
+[INFO] [1739733390.490852754] [hello_moveit]: Final average speed for trajectory set 1: 0.067 rad/s
+[INFO] [1739733390.490872672] [hello_moveit]: Final average speed for trajectory set 2: 0.075 rad/s
+[INFO] [1739733390.490891477] [hello_moveit]: Final average speed for trajectory set 3: 0.065 rad/s
+[INFO] [1739733390.490910062] [hello_moveit]: Final average speed for trajectory set 4: 0.070 rad/s
+[INFO] [1739733390.490927936] [hello_moveit]: Final average speed for trajectory set 5: 0.078 rad/s
+[INFO] [1739733390.490943555] [hello_moveit]: Final average speed for trajectory set 6: 0.068 rad/s
+[INFO] [1739733390.490958784] [hello_moveit]: Final average speed for trajectory set 7: 0.071 rad/s
+[INFO] [1739733390.490974243] [hello_moveit]: Final average speed for trajectory set 8: 0.072 rad/s
+[INFO] [1739733390.490989322] [hello_moveit]: Final average speed for trajectory set 9: 0.065 rad/s
+[INFO] [1739733390.491004611] [hello_moveit]: Final average speed for trajectory set 10: 0.074 rad/s
+[INFO] [1739733390.491047021] [hello_moveit]: Final average speed for trajectory set 11: 0.077 rad/s
+[INFO] [1739733390.491063001] [hello_moveit]: Final average speed for trajectory set 12: 0.068 rad/s
