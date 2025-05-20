@@ -1,5 +1,9 @@
 // ################################################################
 // naj bi delala za vec trajektori in umes stala med njimi 5 sekund
+
+// hitrost v 3d prostoru  evklidska norma vskaa komponenta na kvadrat in pod koren
+
+
 #include <memory>
 #include <thread>
 #include <rclcpp/rclcpp.hpp>
@@ -22,8 +26,8 @@ double round_to_decimal(double value, int decimal_places) {
 
 void log_tool0_position(rclcpp::Node::SharedPtr node, moveit::planning_interface::MoveGroupInterface& move_group_interface)
 {
-    std::ofstream csv_file("MotoROS_SIM_PTP_0.75.csv");
-    csv_file << "//MOTOROS_SIM_PTP_0.75;;;;;;;\n";
+    std::ofstream csv_file("MotoROS_LIN_term_0.5.csv");
+    csv_file << "//MOTOROS_LIN_term_0.5;;;;;;;\n";
     csv_file << "Name;X;Y;Z;Rx;Ry;Rz;time;step\n";
     // csv_file << "time;X;Y;Z\n";
     csv_file << std::fixed << std::setprecision(4) << std::showpoint;
@@ -116,6 +120,12 @@ double execute_waypoints(
             // Visualize trajectory in RViz
             moveit_visual_tools.publishTrajectoryLine(plan.trajectory_, move_group_interface.getRobotModel()->getJointModelGroup("manipulator"));
             moveit_visual_tools.trigger();
+            // Add a 0.1-second delay before moving to the next waypoint
+            if (i < waypoints.size() - 1) // No need to wait after the last waypoint
+            {
+                RCLCPP_INFO(logger, "Waiting 0.1 seconds before moving to the next waypoint...");
+                std::this_thread::sleep_for(std::chrono::milliseconds(500));
+            }
         }
         else
         {
@@ -157,7 +167,7 @@ int main(int argc, char* argv[])
     move_group_interface.setPlanningPipelineId("pilz_industrial_motion_planner");
     move_group_interface.setPlannerId("PTP"); // Set to 'PTP' for point-to-point movement
     move_group_interface.setPlanningTime(3.0);
-    move_group_interface.setMaxVelocityScalingFactor(0.0375); 
+    move_group_interface.setMaxVelocityScalingFactor(0.05); //0.05 je 50 mm, 0.1 pa 100 mm/s
     move_group_interface.setMaxAccelerationScalingFactor(1.0);
 
 
@@ -165,6 +175,11 @@ int main(int argc, char* argv[])
     //0.05 je 100mm/s in je isto kot pri motoplusu ( pospesk 1.0)
         //0.05, 0.0375, 0.025, 0.0125
     //0.2 je 400 (pri 1.0 pospesku)
+
+    //1.0 0.75 0.5 0.25
+
+    //LIN- 1 0 1 1 
+    //PTP- 1 1 1 1
 
 
     // Start logging tool0 positions in a separate thread
@@ -189,7 +204,7 @@ int main(int argc, char* argv[])
     rclcpp::sleep_for(std::chrono::seconds(2));
     // Define a base pose to use as a reference for all movements
     geometry_msgs::msg::Pose base_pose;
-    base_pose.position.x = 1.175; // pri meritvah mormo mi dt 1080 ker 95 je se od T maca
+    base_pose.position.x = 0.88; // pri meritvah mormo mi dt 1080 ker 95 je se od T maca, pri simulaciji pa 1.175
     base_pose.position.y = 0.0;
     base_pose.position.z = 0.24; // spremeni une baze da use stima!
     base_pose.orientation.x = 0.0;
@@ -504,7 +519,7 @@ int main(int argc, char* argv[])
         if (i < trajectory_sets.size() - 1) // No need to wait after the last set
         {
             RCLCPP_INFO(logger, "Waiting 5 seconds before executing the next trajectory set...");
-            std::this_thread::sleep_for(std::chrono::nanoseconds(3000000000));
+            std::this_thread::sleep_for(std::chrono::nanoseconds(5000000000));
 
         }
         
